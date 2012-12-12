@@ -7,7 +7,15 @@ tags: [经验]
 ---
 {% include JB/setup %}
 
-codekit提供compass工具，当应用在jekyll上时，由于jekyll会将样式表文件等拷贝到_site目录下，然后codekit会试图编译该目录下的sass文件，触发“you must compile individual stylesheets from the project directory”错误。
+注册域名一年多后，终于把blog搭起来了。
+
+正好在研究compass和bootstrap，所以jekyll-bootstrap就成了不二之选。
+
+既然codekit提供了compass工具，就想索性一站式解决好了。
+
+结果各种“you must compile individual stylesheets from the project directory”报错。
+
+最后发现原因是jekyll生成了_site文件夹后，codekit检测到文件变动，会试图编译其中的sass文件。
 
 So，配置codekit也好，配置compass也好，配置jekyll也好，过滤掉_site目录下的sass文件就好。
 
