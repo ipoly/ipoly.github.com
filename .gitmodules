@@ -1,0 +1,3 @@
+[submodule "p5/mosaic3d"]
+	path = p5/mosaic3d
+	url = https://ipoly@github.com/ipoly/mosaic3d.git
