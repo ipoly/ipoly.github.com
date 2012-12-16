@@ -13,7 +13,9 @@
 
     <!-- Le styles -->
     <link href="{{ ASSET_PATH }}/stylesheets/styles.css" rel="stylesheet">
-
+    {% if page.p5files %}
+    <script src="{{ ASSET_PATH }}/javascripts/processing-1.4.1.min.js"></script>
+    {% endif %}
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
