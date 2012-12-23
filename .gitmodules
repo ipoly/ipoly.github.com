@@ -1,3 +1,6 @@
 [submodule "p5/landscape"]
 	path = p5/landscape
 	url = git://github.com/ipoly/landscape.git
+[submodule "p5/mosaic3d"]
+	path = p5/mosaic3d
+	url = git://github.com/ipoly/mosaic3d.git
