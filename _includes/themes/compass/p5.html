@@ -4,6 +4,14 @@
 
 <div class="row">
     <div class="span12">
+        <div>
+            {% if page.youku %}
+            <a href="{{page.youku}}">{视频演示}</a>
+            {% endif %}
+            {% if page.github %}
+            <a href="https://github.com/ipoly/{{page.github}}">{项目地址}</a>
+            {% endif %}
+        </div>
         {% capture path %} /p5/{{page.title}}/{% endcapture %}
         <canvas data-processing-sources="/p5/{{page.title}}/{{ page.p5files | join: path}}">警告：由于您的浏览器不支持canvas，系统将在3秒后自我摧毁。</canvas>
     </div>
