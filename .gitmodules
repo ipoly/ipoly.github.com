@@ -1,6 +1,6 @@
 [submodule "p5/mosaic3d"]
 	path = p5/mosaic3d
-	url = https://ipoly@github.com/ipoly/mosaic3d.git
+url=git://github.com/ipoly/mosaic3d.git
 [submodule "p5/landscape"]
 	path = p5/landscape
-	url = https://ipoly@github.com/ipoly/landscape.git
+url=https://github.com/ipoly/landscape.git
