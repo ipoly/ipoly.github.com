@@ -1963,7 +1963,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url(/assets/themes/compass/images/glyphicons-halflings.png?1355043109);
+  background-image: url(/assets/themes/compass/images/glyphicons-halflings.png?1356261896);
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px; }
@@ -1983,7 +1983,7 @@ table th[class*="span"],
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: url(/assets/themes/compass/images/glyphicons-halflings-white.png?1355043109); }
+  background-image: url(/assets/themes/compass/images/glyphicons-halflings-white.png?1356261896); }
 
 /* line 48, ../../../../../../../../../opt/local/lib/ruby/gems/1.8/gems/bootstrap-sass-2.2.1.1/vendor/assets/stylesheets/bootstrap/_sprites.scss */
 .icon-glass {
@@ -5526,3 +5526,17 @@ a.label:hover, a.badge:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+/* line 6, ../sass/styles.scss */
+body {
+  padding-top: 40px; }
+
+/* line 11, ../sass/styles.scss */
+.navbar a {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+/* line 14, ../sass/styles.scss */
+.navbar .brand {
+  font-weight: bold; }
