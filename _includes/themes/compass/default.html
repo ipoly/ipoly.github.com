@@ -13,9 +13,6 @@
 
     <!-- Le styles -->
     <link href="{{ ASSET_PATH }}/stylesheets/styles.css" rel="stylesheet">
-    {% if page.p5files %}
-    <script src="{{ ASSET_PATH }}/javascripts/processing-1.4.1.min.js"></script>
-    {% endif %}
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -53,6 +50,11 @@
 
     </div> <!-- /container -->
 
+    {% if page.p5files %}
+    <script src="{{ ASSET_PATH }}/javascripts/processing-1.4.1.min.js"></script>
+    {% endif %}
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="{{ ASSET_PATH }}/javascripts/main.js"></script>
     {% include JB/analytics %}
   </body>
 </html>
