@@ -8,12 +8,13 @@ body {
 }
 
 .navbar {
-    a {
-        @include transition(all .2s linear);
-    }
     .brand {
         font-weight: bold;
     }
+}
+
+a:hover {
+    color: #FF0080;
 }
 
 
