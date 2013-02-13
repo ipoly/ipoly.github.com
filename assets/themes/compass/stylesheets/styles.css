@@ -5538,3 +5538,15 @@ body {
 /* line 16, ../sass/styles.scss */
 a:hover {
   color: #FF0080; }
+
+/* line 20, ../sass/styles.scss */
+#flashcontent {
+  height: 650px;
+  -webkit-box-shadow: 0 2px 10px #666666;
+  -moz-box-shadow: 0 2px 10px #666666;
+  box-shadow: 0 2px 10px #666666; }
+
+/* line 25, ../sass/styles.scss */
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 20px; }
