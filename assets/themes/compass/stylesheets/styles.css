@@ -5550,3 +5550,7 @@ a:hover {
 .show-grid {
   margin-top: 10px;
   margin-bottom: 20px; }
+
+/* line 31, ../sass/styles.scss */
+.doubanIntro img {
+  border: 5px solid; }
