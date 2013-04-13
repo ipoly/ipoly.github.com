@@ -5551,6 +5551,9 @@ a:hover {
   margin-top: 10px;
   margin-bottom: 20px; }
 
-/* line 31, ../sass/styles.scss */
-.doubanIntro img {
-  border: 5px solid; }
+/* line 30, ../sass/styles.scss */
+.doubanIntro {
+  font-size: 12px; }
+  /* line 32, ../sass/styles.scss */
+  .doubanIntro img {
+    border: 5px solid; }
