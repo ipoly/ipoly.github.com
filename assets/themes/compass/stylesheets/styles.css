@@ -5557,3 +5557,13 @@ a:hover {
   /* line 32, ../sass/styles.scss */
   .doubanIntro img {
     border: 5px solid; }
+
+/* line 38, ../sass/styles.scss */
+#smarterer img {
+  display: inline-block;
+  width: 100px;
+  margin: 0 10px 10px 0; }
+
+/* line 45, ../sass/styles.scss */
+.mb20 {
+  margin-bottom: 20px; }

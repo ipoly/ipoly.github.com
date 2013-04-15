@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114.png">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
   </head>
 
   <body>
@@ -53,10 +54,12 @@
     {% if page.p5files %}
     <script src="{{ ASSET_PATH }}/javascripts/processing-1.4.1.min.js"></script>
     {% endif %}
-    <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="{{ ASSET_PATH }}/javascripts/juicer-min.js"></script>
     <script src="{{ ASSET_PATH }}/javascripts/main.js"></script>
     <script src="{{ ASSET_PATH }}/javascripts/douban.js"></script>
+    {% if page.title == "About me" %}
+    <script src="{{ ASSET_PATH }}/javascripts/smarterer.js"></script>
+    {% endif %}
     {% include JB/analytics %}
   </body>
 </html>

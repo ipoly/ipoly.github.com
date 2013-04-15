@@ -34,6 +34,16 @@ a:hover {
     }
 }
 
+#smarterer {
+    img {
+        display: inline-block;
+        width: 100px;
+        margin: 0 10px 10px 0;
+    }
+}
+
+.mb20 {margin-bottom: 20px}
+
 // Include responsive Bootstrap styles
 // @import "bootstrap-responsive";
 
