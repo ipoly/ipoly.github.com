@@ -5567,3 +5567,15 @@ a:hover {
 /* line 45, ../sass/styles.scss */
 .mb20 {
   margin-bottom: 20px; }
+
+/* line 48, ../sass/styles.scss */
+.month {
+  text-indent: 2em; }
+
+/* line 51, ../sass/styles.scss */
+.list {
+  padding-left: 2em; }
+
+/* line 55, ../sass/styles.scss */
+footer {
+  padding-top: 40px; }
