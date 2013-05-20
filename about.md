@@ -31,7 +31,7 @@ group: "navigation"
 <div id="smarterer"></div>
 
 ### [我的豆瓣主页][2]
-<script type="text/javascript" src="http://www.douban.com/service/badge/13200815/?show=collection&n=20&columns=8&picsize=medium&hidelogo=yes&hideself=yes&cat=book" ></script>
+<script type="text/javascript" src="http://www.douban.com/service/badge/13200815/?show=collection&n=20&columns=11&hidelogo=yes&hideself=yes&cat=book" ></script>
 
 
 
