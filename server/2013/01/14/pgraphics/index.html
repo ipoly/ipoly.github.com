@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PGraphics兼容性问题</title>
+    <meta name="description" content="">
+    <meta name="author" content="Zeng Li">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/compass/stylesheets/styles.css" rel="stylesheet">
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114.png">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Dog my cats</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About me</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>PGraphics兼容性问题 <small></small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>囧东的3D验证码有些许坑爹。于是用p5来做做玩儿。</p>
+
+<p>使用PGraphics对象来缓存和生成图片，原生正常，移植到web端的时候遇到如下问题：</p>
+
+<ol>
+<li>初始化的问题，原生的程序中，PGraphics若要初始化为P3D，那么sketch本身也必须初始化为P3D，否则报错。但在网络端，则相反。</li>
+<li>web端PGraphics使用<code>light()</code>的话，则会报<code>can only create 8 lights</code>错误。</li>
+<li>web端使用PGraphics<code>vertex()</code>绘制会报性能问题，看来在web端PGraphics只能用于一些简单的任务。或者代码要写得更好……</li>
+</ol>
+
+
+<p><embed src="http://player.youku.com/player.php/sid/XNTAxODIxNTg0/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></p>
+
+<p><a href="https://github.com/ipoly/validationCode">[项目地址]</a></p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2013/01/07/docco-documentation-generator" title="Docco 文档生成器">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/读书笔记/2013/02/13/Designed_for_Use" title="《亲爱的界面》">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'dogmycats'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>14 January 2013</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+    
+    	<li><a href="/tags.html#p5-ref">p5 <span>1</span></a></li>
+    
+    	<li><a href="/tags.html#经验-ref">经验 <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Zeng Li 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+    <script src="/assets/themes/compass/javascripts/juicer-min.js"></script>
+    <script src="/assets/themes/compass/javascripts/main.js"></script>
+    <script src="/assets/themes/compass/javascripts/douban.js"></script>
+    
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37459889-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Docco 文档生成器</title>
+    <meta name="description" content="">
+    <meta name="author" content="Zeng Li">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/compass/stylesheets/styles.css" rel="stylesheet">
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114.png">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Dog my cats</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About me</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Docco 文档生成器 <small></small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>按它自己的说法，这是一个马马虎虎的，冗长的，文学化编程风格的文档生成器。</p>
+
+<p>使用<a href="http://wowubuntu.com/markdown/">Markdown</a>来解析注释，用<a href="http://pygments.org/">Pygments</a>来进行代码高亮。</p>
+
+<p>支持CoffeeScript, JavaScript, Ruby, Python, 和 TeX 文档。</p>
+
+<p>只支持单行注释。</p>
+
+<p>基于Node.js，不过有若干其他语言的实现：<a href="http://rtomayko.github.com/rocco/rocco.html">Ruby</a>, <a href="http://fitzgen.github.com/pycco/">Python</a>, <a href="http://rtomayko.github.com/shocco/">POSIX shell</a>, <a href="http://fogus.me/fun/marginalia/">Clojure</a>, <a href="http://rgieseke.github.com/locco/">Lua</a>（这个版本是单语支持的） 和 <a href="http://dontangg.github.com/nocco/">.Net</a>。嗯，适口性不错。</p>
+
+<p>生成结果就是其<a href="http://jashkenas.github.com/docco/">官网</a>的模样，看起来还行。</p>
+
+<p>使用方式自然是命令行：</p>
+
+<pre><code>docco src/*.coffee
+</code></pre>
+
+<p>所以它会根据后缀自行处理，相比之下<a href="http://yui.github.com/yuidoc/args/index.html">YUIDoc</a>必须使用<code>--syntaxtype</code>来设置CoffeeScript，还没缩写……略显坑爹啊……</p>
+
+<p>可以带参数：</p>
+
+<pre><code>-h, --help             output usage information
+-V, --version          output the version number
+-c, --css [file]       use a custom css file
+-o, --output [path]    use a custom output path
+-t, --template [file]  use a custom .jst template
+</code></pre>
+
+<p>不过其他的实现带的参数未必一样，比如Pyhon版目前只有这些：</p>
+
+<pre><code>-h, --help                        show this help message and exit
+-p, --paths                       Preserve path structure of original files
+-d OUTDIR, --directory=OUTDIR     The output directory that the rendered files should go to.
+-w, --watch                       Watch original files and re-generate documentation on changes
+</code></pre>
+
+<p>最后，作者用推荐<a href="https://github.com/omarkhan/coffeedoc">CoffeeDoc</a>写API文档。<a href="http://omarkhan.me/coffeedoc/test/example.coffee.html">效果</a>也蛮漂亮。另外，这货还能生成Github的<a href="https://github.com/apgwoz/coffeedoc-hub/wiki/Src:Coffeedoc">wiki页</a>，感觉更加有趣了。</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/12/28/zong-jie" title="2012年终总结">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2013/01/14/pgraphics" title="PGraphics兼容性问题">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'dogmycats'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>07 January 2013</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+    
+    	<li><a href="/tags.html#工具,CoffeeScript,Javascript-ref">工具,CoffeeScript,Javascript <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Zeng Li 2012
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+    <script src="/assets/themes/compass/javascripts/juicer-min.js"></script>
+    <script src="/assets/themes/compass/javascripts/main.js"></script>
+    <script src="/assets/themes/compass/javascripts/douban.js"></script>
+    
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37459889-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Dog my cats</title>
+ <link href="http://zeng.li/atom.xml" rel="self"/>
+ <link href="http://zeng.li"/>
+ <updated>2013-11-17T13:29:35+08:00</updated>
+ <id>http://zeng.li</id>
+ <author>
+   <name>Zeng Li</name>
+   <email>mail@zeng.li</email>
+ </author>
+
+ 
+ <entry>
+   <title>Webshim with Angularjs</title>
+   <link href="http://zeng.li/2013/11/13/webshim-with-angularjs"/>
+   <updated>2013-11-13T00:00:00+08:00</updated>
+   <id>http://zeng.li/2013/11/13/webshim-with-angularjs</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://afarkas.github.io/webshim/demos/&quot;&gt;Webshim&lt;/a&gt;和&lt;a href=&quot;http://code.angularjs.org/&quot;&gt;Angularjs&lt;/a&gt;合用的时候，遇到&lt;a href=&quot;http://code.angularjs.org/&quot;&gt;Angularjs&lt;/a&gt;动态生成节点时会有bug，比如&lt;a href=&quot;http://code.angularjs.org/1.0.8/docs/api/ng.directive:ngSwitch&quot;&gt;ngSwitch&lt;/a&gt;内的 &lt;em&gt;input&lt;/em&gt; 使用 &lt;em&gt;placeholder&lt;/em&gt; ，会导致 &lt;em&gt;scope&lt;/em&gt; 出现问题从而&lt;a href=&quot;http://code.angularjs.org/1.0.8/docs/api/ng.directive:ngModel&quot;&gt;ngModel&lt;/a&gt;无法按预期行动。&lt;/p&gt;
+
+&lt;p&gt;解决办法是在新节点生成后调用&lt;a href=&quot;http://afarkas.github.io/webshim/demos/&quot;&gt;Webshim&lt;/a&gt;的 &lt;code&gt;updatePolyfill&lt;/code&gt; 方法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    # coffeescript
+    angular.module('components')
+    # 修复WSpalceholder与ngModel的冲突
+    .directive('placeholder',-&amp;gt;
+            {
+                restrict: 'A'
+                link:  ($scope,$elm,$attrs,ngModel)-&amp;gt;
+                    $elm.updatePolyfill()
+            }
+    )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;参考：&lt;a href=&quot;http://afarkas.github.io/webshim/demos/demos/shiv.html#dynamic&quot;&gt;Dynamically adding HTML5 markup&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>npm error note</title>
+   <link href="http://zeng.li/2013/11/12/npm-error-note"/>
+   <updated>2013-11-12T00:00:00+08:00</updated>
+   <id>http://zeng.li/2013/11/12/npm-error-note</id>
+   <content type="html">&lt;p&gt;加班和上课忙乎了半年，完全把blog的事儿给忘了。JB系统该如何维护完全忘光光，看来得抽空重整理一下了。&lt;/p&gt;
+
+&lt;p&gt;最近鼓捣&lt;a href=&quot;http://yeoman.io&quot;&gt;YO&lt;/a&gt;，发现npm已经被玩儿坏了，折腾两天好不终于修复，做下笔记。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;brew和node似乎有点儿兼容问题，更新npm可能会报错：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Error: Refusing to delete: /usr/local/bin/npm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt; 官方推荐还是用打包好的安装包安装node为上策。&lt;/p&gt;
+
+&lt;p&gt; 不过 &lt;a href=&quot;https://github.com/isaacs/npm/issues/3794&quot;&gt;Issue #3794&lt;/a&gt; 有仁兄提出了个解决办法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; sudo npm update -gf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt; 其余的，就静待brew解决吧。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在使用&lt;a href=&quot;http://yeoman.io&quot;&gt;YO&lt;/a&gt;的时候各种&lt;code&gt;npm ERR! Error: EACCES&lt;/code&gt;什么的，通过修改权限解决：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; sudo chown -R `whoami` ~/.npm
+ sudo chown -R `whoami` /usr/local/lib/node_modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt; 原文在此：&lt;a href=&quot;http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo&quot;&gt;NPM throws error without sudo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>《哈佛幸福课》</title>
+   <link href="http://zeng.li/读书笔记/2013/04/13/stumbling_on_happiness"/>
+   <updated>2013-04-13T00:00:00+08:00</updated>
+   <id>http://zeng.li/读书笔记/2013/04/13/stumbling_on_happiness</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://book.douban.com/subject/1775691/&quot;&gt;《少有人走的路》&lt;/a&gt;里面说，人类在婴儿时期，有成年人照顾他的一切，所以会形成“心想事成”的错误认知。随着年龄的增大，越来越独立地和物理世界交互，才逐渐发现自己是“不自由”的，从而产生痛苦。当恋爱了，双方彼此的迁就和献殷勤，重现了婴儿时期“心想事成”的感觉，所以热恋中的人感觉拥有整个世界并无所不能。&lt;/p&gt;
+
+&lt;p&gt;本书更好地阐述了关于这个现象的心理来源。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;p21-控制未来能带给我们幸福感
+人们生来就带有强烈的控制欲，在他们进入社会之后还是带着同样的控制欲。
+研究表明，一旦在某个时期失去了控制的能力，人们就会变得郁郁寡欢，茫然无助，悲观绝望，并陷入抑郁的深渊。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以为什么失恋让人痛苦呢？&lt;br/&gt;
+一方面是因为丢失“外部记忆”的载体。&lt;br/&gt;
+另一方面是失去了对物理世界的“控制力”。&lt;br/&gt;
+那么，就不难理解，为什么越是作威作福肆意妄为的家伙，失恋后越是痛苦了：他们的控制力，大部分是依赖于对方的。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>《响应式Web设计》</title>
+   <link href="http://zeng.li/读书笔记/2013/03/11/response_web_design_with_html5_and_css3"/>
+   <updated>2013-03-11T00:00:00+08:00</updated>
+   <id>http://zeng.li/读书笔记/2013/03/11/response_web_design_with_html5_and_css3</id>
+   <content type="html">&lt;p&gt;翻译得蛮生动。&lt;/p&gt;
+
+&lt;p&gt;咋看之下有半本书是在堆砌html5和css3教程。但实际上和主题联系还是相当紧密。&lt;/p&gt;
+
+&lt;p&gt;介绍的工具和资源都有很高价值。&lt;/p&gt;
+
+&lt;p&gt;只是不少网址拼写上有错误。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>《亲爱的界面》</title>
+   <link href="http://zeng.li/读书笔记/2013/02/13/Designed_for_Use"/>
+   <updated>2013-02-13T00:00:00+08:00</updated>
+   <id>http://zeng.li/读书笔记/2013/02/13/Designed_for_Use</id>
+   <content type="html">&lt;p&gt;继&lt;a href=&quot;/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/2012/02/22/The_Elements_of_User_Experience/&quot;&gt;《用户体验要素》&lt;/a&gt;之后读到的又一本内容相当丰富的书。&lt;/p&gt;
+
+&lt;p&gt;里面给出了大量的参考书和实用工具。&lt;/p&gt;
+
+&lt;p&gt;相比而言，这本书重点在于各种具体实施的方法上。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>PGraphics兼容性问题</title>
+   <link href="http://zeng.li/2013/01/14/pgraphics"/>
+   <updated>2013-01-14T00:00:00+08:00</updated>
+   <id>http://zeng.li/2013/01/14/pgraphics</id>
+   <content type="html">&lt;p&gt;囧东的3D验证码有些许坑爹。于是用p5来做做玩儿。&lt;/p&gt;
+
+&lt;p&gt;使用PGraphics对象来缓存和生成图片，原生正常，移植到web端的时候遇到如下问题：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;初始化的问题，原生的程序中，PGraphics若要初始化为P3D，那么sketch本身也必须初始化为P3D，否则报错。但在网络端，则相反。&lt;/li&gt;
+&lt;li&gt;web端PGraphics使用&lt;code&gt;light()&lt;/code&gt;的话，则会报&lt;code&gt;can only create 8 lights&lt;/code&gt;错误。&lt;/li&gt;
+&lt;li&gt;web端使用PGraphics&lt;code&gt;vertex()&lt;/code&gt;绘制会报性能问题，看来在web端PGraphics只能用于一些简单的任务。或者代码要写得更好……&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;embed src=&quot;http://player.youku.com/player.php/sid/XNTAxODIxNTg0/v.swf&quot; allowFullScreen=&quot;true&quot; quality=&quot;high&quot; width=&quot;480&quot; height=&quot;400&quot; align=&quot;middle&quot; allowScriptAccess=&quot;always&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/embed&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ipoly/validationCode&quot;&gt;[项目地址]&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Docco 文档生成器</title>
+   <link href="http://zeng.li/2013/01/07/docco-documentation-generator"/>
+   <updated>2013-01-07T00:00:00+08:00</updated>
+   <id>http://zeng.li/2013/01/07/docco-documentation-generator</id>
+   <content type="html">&lt;p&gt;按它自己的说法，这是一个马马虎虎的，冗长的，文学化编程风格的文档生成器。&lt;/p&gt;
+
+&lt;p&gt;使用&lt;a href=&quot;http://wowubuntu.com/markdown/&quot;&gt;Markdown&lt;/a&gt;来解析注释，用&lt;a href=&quot;http://pygments.org/&quot;&gt;Pygments&lt;/a&gt;来进行代码高亮。&lt;/p&gt;
+
+&lt;p&gt;支持CoffeeScript, JavaScript, Ruby, Python, 和 TeX 文档。&lt;/p&gt;
+
+&lt;p&gt;只支持单行注释。&lt;/p&gt;
+
+&lt;p&gt;基于Node.js，不过有若干其他语言的实现：&lt;a href=&quot;http://rtomayko.github.com/rocco/rocco.html&quot;&gt;Ruby&lt;/a&gt;, &lt;a href=&quot;http://fitzgen.github.com/pycco/&quot;&gt;Python&lt;/a&gt;, &lt;a href=&quot;http://rtomayko.github.com/shocco/&quot;&gt;POSIX shell&lt;/a&gt;, &lt;a href=&quot;http://fogus.me/fun/marginalia/&quot;&gt;Clojure&lt;/a&gt;, &lt;a href=&quot;http://rgieseke.github.com/locco/&quot;&gt;Lua&lt;/a&gt;（这个版本是单语支持的） 和 &lt;a href=&quot;http://dontangg.github.com/nocco/&quot;&gt;.Net&lt;/a&gt;。嗯，适口性不错。&lt;/p&gt;
+
+&lt;p&gt;生成结果就是其&lt;a href=&quot;http://jashkenas.github.com/docco/&quot;&gt;官网&lt;/a&gt;的模样，看起来还行。&lt;/p&gt;
+
+&lt;p&gt;使用方式自然是命令行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docco src/*.coffee
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以它会根据后缀自行处理，相比之下&lt;a href=&quot;http://yui.github.com/yuidoc/args/index.html&quot;&gt;YUIDoc&lt;/a&gt;必须使用&lt;code&gt;--syntaxtype&lt;/code&gt;来设置CoffeeScript，还没缩写……略显坑爹啊……&lt;/p&gt;
+
+&lt;p&gt;可以带参数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-h, --help             output usage information
+-V, --version          output the version number
+-c, --css [file]       use a custom css file
+-o, --output [path]    use a custom output path
+-t, --template [file]  use a custom .jst template
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;不过其他的实现带的参数未必一样，比如Pyhon版目前只有这些：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-h, --help                        show this help message and exit
+-p, --paths                       Preserve path structure of original files
+-d OUTDIR, --directory=OUTDIR     The output directory that the rendered files should go to.
+-w, --watch                       Watch original files and re-generate documentation on changes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最后，作者用推荐&lt;a href=&quot;https://github.com/omarkhan/coffeedoc&quot;&gt;CoffeeDoc&lt;/a&gt;写API文档。&lt;a href=&quot;http://omarkhan.me/coffeedoc/test/example.coffee.html&quot;&gt;效果&lt;/a&gt;也蛮漂亮。另外，这货还能生成Github的&lt;a href=&quot;https://github.com/apgwoz/coffeedoc-hub/wiki/Src:Coffeedoc&quot;&gt;wiki页&lt;/a&gt;，感觉更加有趣了。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>2012年终总结</title>
+   <link href="http://zeng.li/2012/12/28/zong-jie"/>
+   <updated>2012-12-28T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/12/28/zong-jie</id>
+   <content type="html">&lt;h2&gt;工具篇&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;工和匠的区别之一，在于挑选和投资工具。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1. Mac Mini&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.apple.com.cn/mac-mini/images/buystrip_product.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;年初的时候在一个创业团队的blog上瞄到其各种招聘，&quot;使用mac者优先&quot;，顿时就好奇了，只知道黑客们都用linux，设计师喜欢mac，那对于普通开发者而言，个mac有啥好优越感的？&lt;/p&gt;
+
+&lt;p&gt;于是各种看帖，其中印象最深的是&lt;a href=&quot;http://www.vpsee.com/2009/06/why-programmers-love-mac/2012/03/05/2380480.html&quot;&gt;[为什么国外程序员爱用 Mac]&lt;/a&gt;及其评论。然后按耐不住开始折腾黑苹果。在虚拟机上安装成功没两天，就果断败了mac mini。倒不是用了两天就被打动了，而是在虚拟机上总觉着缺点儿什么。&lt;/p&gt;
+
+&lt;p&gt;然后这就用了一整年的mac了，现在每天背着上班，感受如下：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;不用安装360，不用安装杀软，再也不关心开机时间，每天省出3分钟好心情。右下丑陋的弹窗再也没出现过，每天省出半个小时好心情。&lt;/li&gt;
+&lt;li&gt;mac默认没有分区，开始有点儿不习惯，但是，慢慢发现，没什么东西找不到的。一顿双击深入文件夹找东西的情况再也没有发生过，同时也再也不关心磁盘用了多少，要不要磁盘整理，回收站该清空等杂务。&lt;/li&gt;
+&lt;li&gt;最初上手的两个月，最直观的感受就是，mac开机就能应付各种事务，win开机就是个裸奔的啥都干不了。而随着开始使用mac作为开发环境，发现其自带的各种环境真是非常方便，经常要玩儿一个新工具的时候会发现：诶~mac自带了这个、mac自带了那个……&lt;/li&gt;
+&lt;li&gt;软件更新方便。我现在只有一两个软件需要自己下载更新包。&lt;/li&gt;
+&lt;li&gt;mac用久了也会慢。不过不太会出现需要强制重启的这种事情。&lt;/li&gt;
+&lt;li&gt;多程序运行超方便，特别是和触摸板的多点触控手势结合，太便利了，开上一堆程序，程序开上一堆窗口，都能轻松切换。现在想想在win下只会用alt+tab切换，真是可怕的效率啊。&lt;/li&gt;
+&lt;li&gt;mac的程序大多都会自动保存状态，编辑器啥的不用特意保存，重新开机后东西都在。&lt;/li&gt;
+&lt;li&gt;苹果的生态系统真的蛮能培养付费习惯。用新软件前我第一反应不是找有没有盗版，而是看看正版多少钱……之前看有人吐槽mac市场占有率只有8%，给它开发软件不见得能赚钱，但，如果乘以用户的付费意愿呢？&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;a name=&quot;codekit&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;2. &lt;a href=&quot;http://incident57.com/codekit/&quot;&gt;CodeKit&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://incident57.com/codekit/images/logo.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;号称&lt;a href=&quot;http://www.cnblogs.com/aNd1coder/archive/&quot;&gt;&quot;为Web前端打造的全能型神器&quot;&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;名不虚传。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这一年里帮助最大的就这 &lt;strong&gt;神器&lt;/strong&gt; 了。除了使用方便，通过它，我还接触到了不少好东西。&lt;/p&gt;
+
+&lt;p&gt;最棒的特性莫过于对脚本和样式表的&lt;code&gt;Frameworks&lt;/code&gt;管理，再也不用把复用的文件粘来粘去了。&lt;/p&gt;
+
+&lt;p&gt;$25的价格，相对于回报来说，简直是白菜价。&lt;/p&gt;
+
+&lt;h3&gt;3. &lt;a href=&quot;http://www.fiddler2.com/&quot;&gt;Fiddler&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.fiddler2.com/Fiddler/images/FiddlerLogo.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;没有mac版，只好运行在虚拟机中。&lt;/p&gt;
+
+&lt;p&gt;这也是枚 &lt;strong&gt;神器&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;p&gt;它从根本上改变了我的开发模式。以前，视乎后端使用的语言，我得在自己机器上部署相应的运行环境来进行开发和调试。有了fiddler以后，js和css全部映射到本地的目录，既可利用远程的数据，又不用在本地部署运行环境，还可以随便调试，十分爽快。&lt;/p&gt;
+
+&lt;p&gt;特别是在开发代购插件的项目中，原本插件是面向ie的，利用fiddler向指定站点的html代码中直接注入本地的脚本，可以与win端程序并行开发互不影响，又能在自己mac下的chorme里直接调试。&lt;/p&gt;
+
+&lt;p&gt;如果没有fiddler，可能得先开发个chrome插件版，然后剥离出核心代码供ie插件使用，随后的调试修改还得保持两个版本的同步，再加上win端插件代码经常出bug……想想就欲死欲仙……&lt;/p&gt;
+
+&lt;h3&gt;4. &lt;a href=&quot;http://zh.wikipedia.org/wiki/Sublime_Text&quot;&gt;Sublime Text 2&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://chancegrissom.com/sites/default/files/styles/news_teaser/public/field/image/sublime_text_icon_2181.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;用了两年的gvim，终于转到st了，当然，仍然使用vi的输入模式。&lt;/p&gt;
+
+&lt;p&gt;主要还是有点儿懒得折腾vi的配置，虽然配置后vi可以满足任何需求，但总是太繁琐了点儿。&lt;/p&gt;
+
+&lt;p&gt;st上手即用，界面蛮漂亮，速度也快。感觉跟&lt;a href=&quot;http://code.google.com/p/macvim/&quot;&gt;MacVim&lt;/a&gt;差不多。当然，后来一直保持了8~9个项目的窗口，启动就有点儿慢了，不过还能接受。&lt;/p&gt;
+
+&lt;p&gt;最喜欢的两个功能，一个是插件包管理很方便，这是相对于vim而言。&lt;/p&gt;
+
+&lt;p&gt;另一个是查找文件很方便，因为最近几个项目的文件很无语地乱七八糟地嵌在7~8层目录下，往往文件名跟url还不直接对应……st在很大程度上救了我一命……&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;github&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;5. &lt;a href=&quot;https://github.com/&quot;&gt;Github&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://addons.cdn.mozilla.net/img/uploads/addon_icons/368/368097-64.png?modified=1345941751&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从svn转到了github，虽然还没认真地读过指南神马的，但用着&lt;a href=&quot;www.sourcetreeapp.com&quot;&gt;sourcetree&lt;/a&gt;的图形界面，也还算顺手。&lt;/p&gt;
+
+&lt;p&gt;最大的好处是可以各种本地分支，当做着A修改时突然插入一个急需的B修改这种情况再也不挠头了。&lt;/p&gt;
+
+&lt;p&gt;对于我来说，和&lt;a href=&quot;#codekit&quot;&gt;CodeKit☝&lt;/a&gt;类似，它起到了一个&lt;code&gt;知识节点&lt;/code&gt;的作用，通过它接触了&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;和&lt;a href=&quot;http://liquidmarkup.org/&quot;&gt;Liquid&lt;/a&gt;，并使用&lt;a href=&quot;#jb&quot;&gt;jekyll-bootstrap☟&lt;/a&gt;搭建了自己的博客。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;jb&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;6. &lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyll-Bootstrap&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ruhoh.com/assets/media/first-post.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;对于使用mac的前端来说，这大概是最好用的博客系统了。&lt;/p&gt;
+
+&lt;p&gt;首先基于静态页面无需数据库，清爽简单。&lt;/p&gt;
+
+&lt;p&gt;其次&lt;a href=&quot;http://liquidmarkup.org/&quot;&gt;Liquid&lt;/a&gt;和&lt;a href=&quot;#md&quot;&gt;MarkDown☟&lt;/a&gt;的语法都很简洁有效。&lt;/p&gt;
+
+&lt;p&gt;最重要的是，可以直接部署到&lt;a href=&quot;#github&quot;&gt;Github☝&lt;/a&gt;上，安全又省心，还能把其他&lt;a href=&quot;#github&quot;&gt;Github☝&lt;/a&gt;项目作为子模块引入来使用或展示。&lt;/p&gt;
+
+&lt;h3&gt;7. &lt;a href=&quot;http://zh.wikipedia.org/wiki/JIRA&quot;&gt;Jira&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.yumaworks.com/wp-content/themes/Yuma/images/tbd_logo.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;广受好评的商用&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&quot;&gt;缺陷跟踪管理系统&lt;/a&gt;。价格不菲。&lt;/p&gt;
+
+&lt;p&gt;不过10用户的基础版本倒很便宜。脑子一抽自己买了一份。&lt;/p&gt;
+
+&lt;p&gt;最后的感受是……还是先把&lt;a href=&quot;http://book.douban.com/subject/6011928/&quot;&gt;《写给大家看的项目管理书》&lt;/a&gt;通读一遍先吧……&lt;/p&gt;
+
+&lt;h3&gt;8. &lt;a href=&quot;http://zh.wikipedia.org/wiki/Blender&quot;&gt;Blender&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Blender.svg/64px-Blender.svg.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;研究canvas时觉着应该了解下3D图像的基础知识，稍作研究便忍不住败了&lt;a href=&quot;http://book.douban.com/subject/6119771/&quot;&gt;《Blender权威指南》&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;免费，开源又功能强大的3D建模工具，还用&lt;a href=&quot;http://zh.wikipedia.org/wiki/Python&quot;&gt;Python&lt;/a&gt;作为脚本语言。还能更v5咩？&lt;/p&gt;
+
+&lt;p&gt;不过毕竟不是主业，没有太多时间花在上面。待processing的研究告一段落时再回头来把玩儿吧。&lt;/p&gt;
+
+&lt;h3&gt;9. &lt;a href=&quot;http://webpages.charter.net/edreamleo/&quot;&gt;Leo&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://webpages.charter.net/edreamleo/_static/Leo4-80-border.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;奇葩般的&lt;a href=&quot;http://zh.wikipedia.org/zh/%E6%96%87%E5%AD%A6%E7%BC%96%E7%A8%8B&quot;&gt;文学编程&lt;/a&gt;工具，用心学习了一个多月，实际项目中应用过两次，组织代码非常舒服，不过由于两个致命的缺陷而不能用：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;需要额外的标记来说明结构，当团队里的其他人不使用同样的工具时，就麻烦了。&lt;/li&gt;
+&lt;li&gt;vim的键位映射不怎么好。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;语言篇&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;托CodeKit的福，今年把玩了不少有用的新东西。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1. &lt;a href=&quot;http://zh.wikipedia.org/zh/CoffeeScript&quot;&gt;CoffeeScript&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.davidarno.org/wp-content/uploads/2012/01/coffeescript_logo.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是本年度的重头戏，最初败&lt;a href=&quot;#codekit&quot;&gt;CodeKit☝&lt;/a&gt;就是为了它。&lt;/p&gt;
+
+&lt;p&gt;大爱&lt;code&gt;列表解析&lt;/code&gt;、&lt;code&gt;存在操作符&lt;/code&gt;、&lt;code&gt;字符串插值&lt;/code&gt;特性，感动得热泪盈眶啊。当初玩儿&lt;a href=&quot;http://zh.wikipedia.org/wiki/Python&quot;&gt;Python&lt;/a&gt;的时候羡慕死这些特性了。&lt;/p&gt;
+
+&lt;h3&gt;2. &lt;a href=&quot;http://juicer.name&quot;&gt;Juicer&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://juicer.name/images/juicer.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今年使用最多的模板解析引擎就是它了。胜在小巧且速度快。&lt;/p&gt;
+
+&lt;h3&gt;3. &lt;a href=&quot;http://zh.wikipedia.org/wiki/Jade&quot;&gt;Jade&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.pho.to/img/thumbs/jade-lang.com_medium.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;目前最爱的模板解析引擎，通过&lt;a href=&quot;#codekit&quot;&gt;CodeKit☝&lt;/a&gt;了解到的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;神器。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;因为没有仔细考量过其前端表现，所以暂未作为前端引擎使用。&lt;/p&gt;
+
+&lt;p&gt;强大之一在于语法，采用缩进的方式，一方面简化了html代码的书写，使&lt;a href=&quot;http://baike.baidu.com/view/3371595.htm&quot;&gt;Zen Coding&lt;/a&gt;都有失宠之嫌。&lt;/p&gt;
+
+&lt;p&gt;另一方面它有php、scala、ruby、python、java的实现，意味着前后端可以使用一套模板来写。这应该可以大大降低不熟悉html结构的程序员弄丢标签的几率……(哪个前端不恨到页面上去找他们弄丢或搞残的标签？)&lt;/p&gt;
+
+&lt;p&gt;另一个强大之处在于它的&lt;code&gt;Filter&lt;/code&gt;，可以在页面里直接使用其他需要解析的语言，现在支持的有Stylus、Less、Markdown、CData和CoffeeScript。&lt;/p&gt;
+
+&lt;h3&gt;4. &lt;a href=&quot;http://zh.wikipedia.org/wiki/LESS_(%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8)&quot;&gt;Less&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.lesscss.net/images/logo.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今年主要使用的动态样式语言。&lt;/p&gt;
+
+&lt;p&gt;选择它一来是因为它有js的实现，虽然实际上并不会用于生产环境，不过聊胜于无，没准儿什么情况下用得到呢？&lt;/p&gt;
+
+&lt;p&gt;二来是因为它有比较好的&lt;a href=&quot;http://www.lesscss.net/&quot;&gt;中文文档&lt;/a&gt;，并且语法上和原生的css兼容性更好，当然，后一点现在&lt;a href=&quot;http://sass-lang.com/&quot;&gt;scss&lt;/a&gt;也做到了。&lt;/p&gt;
+
+&lt;p&gt;不过，最近接触了下&lt;a href=&quot;http://compass-style.org/&quot;&gt;compass&lt;/a&gt;，其按包加载的方式颇有吸引力。&lt;/p&gt;
+
+&lt;h3&gt;5. &lt;a href=&quot;http://zh.wikipedia.org/wiki/Markdown&quot;&gt;Markdown&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.searchenginepeople.com/wp-content/uploads/2011/12/markdown-icon.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;才喜欢上了Markdown，虽然有&lt;a href=&quot;http://zh.wikipedia.org/wiki/Pages&quot;&gt;Pages&lt;/a&gt;可以做漂亮的文字处理和页面排版，但是Markdown可以让我专注于思考内容而非格式，也很容易转换到别的文件格式。用&lt;code&gt;cat&lt;/code&gt;命令把多个章节合并输出真是爽呆了！更何况有&lt;a href=&quot;http://mouapp.com/&quot;&gt;Mou&lt;/a&gt;这样漂亮的工具可以用。&lt;/p&gt;
+
+&lt;h3&gt;6. &lt;a href=&quot;http://baike.baidu.com/view/1425612.htm&quot;&gt;Processing&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://discuss.zoho.com/getCustomFile.do?fileId=25080000000003094&amp;amp;forumGroupId=25080000000003001&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下一个项目可能需要在网页端进行一些图片处理，而canvas提供的接口比较底层的，显然需要一个库来处理，结果就找到了Processing，昵称&lt;a href=&quot;http://wiki.processing.org/w/FAQ#Why_is_it_called_.E2.80.9CProcessing.E2.80.9D.3F&quot;&gt;P5&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;Processing本来是基于java的，不过jQuery它爹开发了一个js的实现：&lt;a href=&quot;http://processingjs.org/&quot;&gt;Processingjs&lt;/a&gt;。于是web端几乎可以直接通用代码。&lt;/p&gt;
+
+&lt;p&gt;不过有趣的不止于此，一方面，P5可以直接导出Android可用的格式。另一方面，P5又可直接用于&lt;a href=&quot;http://zh.wikipedia.org/wiki/Arduino&quot;&gt;Arduino&lt;/a&gt;，从而和现实的硬件进行交互，再加上&lt;a href=&quot;http://www.guao.hk/posts/google-android-open-accessory.html&quot;&gt;Google 发布 Android Open Accessory 标准&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;嗯，所有东西都会凑到一起的奇妙感觉有木有？&lt;/p&gt;
+
+&lt;h2&gt;框架篇&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;今年接触了不少框架，以下是准备进一步投入时间的。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1. &lt;a href=&quot;http://baike.baidu.com/view/4663600.htm&quot;&gt;Qunit&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://osser.jp/sites/default/files/styles/thumbnail/public/software_logo/qunit_logo.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;来自jQuery，基于浏览器，方便好用。&lt;/p&gt;
+
+&lt;h3&gt;2. &lt;a href=&quot;http://wrongwaycn.github.com/bootstrap/docs/index.html&quot;&gt;Bootstrap&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://twimg0-a.akamaihd.net/profile_images/2623842034/1c246mhexl0hsiekbwcp_normal.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;火得一塌糊涂的前端框架。连&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/12/obama_fundraising_website.html&quot;&gt;奥巴马筹款网站&lt;/a&gt;都用它，无需多说。&lt;/p&gt;
+
+&lt;p&gt;现在不支持&lt;code&gt;狗日的&lt;/code&gt;IE6。&lt;/p&gt;
+
+&lt;p&gt;据称2.0也不支持&lt;code&gt;半斤八两的&lt;/code&gt;IE7。&lt;/p&gt;
+
+&lt;p&gt;不是不能，是不想。 &lt;strong&gt;V5&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;h3&gt;3. &lt;a href=&quot;http://emberjs.com/&quot;&gt;Emberjs&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://space.cnblogs.com/pic/group/g102912.gif&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;构建“超级Web应用”所需的一切，MIT许可。&lt;/li&gt;
+&lt;li&gt;功能最多，体积最大。&lt;/li&gt;
+&lt;li&gt;融入了很多设计理念，涉及如何分解并对页面进行层次控制，以及如何利用一个状态机驱动的系统联结各个层次。&lt;/li&gt;
+&lt;li&gt;正在开发一个功能非常完善的数据访问库（Ember.Data）。&lt;/li&gt;
+&lt;li&gt;要在运行时控制整个页面，因此不适合开发大页面上的“富应用区”。&lt;/li&gt;
+&lt;li&gt;对文件、URL等都有相当严格的一套约束，不过要是不喜欢，你可以重写，只要你知道怎么做就OK。&lt;/li&gt;
+&lt;li&gt;设计灵感来自&lt;a href=&quot;http://zh.wikipedia.org/wiki/Rails&quot;&gt;Rails&lt;/a&gt;和&lt;a href=&quot;http://zh.wikipedia.org/wiki/Cocoa&quot;&gt;Cocoa&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;工具：为Rails提供项目模板（但如果你手工编写代码，也可以使用其他服务器端平台）。&lt;/li&gt;
+&lt;li&gt;常见的问题应该有通用的解决方案——Ember提供了所有通用解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;读书篇&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;今年读的最好的几本书：
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1. &lt;a href=&quot;http://book.douban.com/subject/6523997/&quot;&gt;用户体验要素&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img3.douban.com/mpic/s6519128.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;原以为是讲设计原理的书，结果完全超出期望值。&lt;/p&gt;
+
+&lt;p&gt;一个产品的用户体验，需要战略目标的设定，范围和功能的选择，信息架构的设计层面就下很多功夫，原型设计和美工设计反倒是水到渠成的事儿，凭空想象用户行为直接上原型和美工设计的，注定是拿沙子堆城堡。&lt;/p&gt;
+
+&lt;h3&gt;2. &lt;a href=&quot;http://book.douban.com/subject/10733304/&quot;&gt;基于MVC的JavaScript Web富应用开发&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img3.douban.com/mpic/s10427681.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从MVC的概念到实现到库和框架直至测试一一介绍，内容相当丰富。而且没有废话。&lt;/p&gt;
+
+&lt;p&gt;除了&lt;a href=&quot;http://book.douban.com/subject/10549733/&quot;&gt;犀牛书&lt;/a&gt;之外，这本真是必看的。&lt;/p&gt;
+
+&lt;h3&gt;3. &lt;a href=&quot;http://book.douban.com/subject/4881987/&quot;&gt;编写高质量代码&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img3.douban.com/mpic/s4388771.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果团队需要html，css和js的编码规范，就它了。&lt;/p&gt;
+
+&lt;p&gt;真是实践中总结的经验，无水分。&lt;/p&gt;
+
+&lt;h3&gt;4. &lt;a href=&quot;http://book.douban.com/subject/11506062/&quot;&gt;JavaScript模式&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img5.douban.com/mpic/s11337059.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;要说在&lt;a href=&quot;http://book.douban.com/subject/10549733/&quot;&gt;犀牛书&lt;/a&gt;和&lt;a href=&quot;http://book.douban.com/subject/10733304/&quot;&gt;猫头鹰书&lt;/a&gt;之外还有什么js书是必备的话，就是它了。&lt;/p&gt;
+
+&lt;p&gt;发现好些模式自己在实践中都不知不觉地在应用。&lt;/p&gt;
+
+&lt;h3&gt;5. &lt;a href=&quot;http://book.douban.com/subject/1906681/&quot;&gt;猎人们&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img3.douban.com/mpic/s1885378.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;应该与人类英雄的传记归于同一类文体。&lt;/p&gt;
+
+&lt;h2&gt;工作篇&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;离开了原来的公司，一口气跳了两次槽。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1. 品果&lt;/h3&gt;
+
+&lt;p&gt;因为觉着&lt;a href=&quot;http://baike.baidu.com/view/4819440.htm&quot;&gt;Camera360&lt;/a&gt;蛮不错的，各种高端感，再加上两年没研究过面试的事儿了，最初去面试的时候还有点儿小紧张。&lt;/p&gt;
+
+&lt;p&gt;总的说来很顺利，笔试题写了一个小时，手都软了。面试中一个jQuery函数的问题没答上来，回头研究了一下发现是个非常有用的特性，以前看文档的时候没太理解，也就一直没用上。&lt;/p&gt;
+
+&lt;h4&gt;优点：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;设计师很专业，美观只是基本工，会做&lt;a href=&quot;http://baike.baidu.com/view/2173476.htm&quot;&gt;Sprites&lt;/a&gt;还能用&lt;a href=&quot;http://www.getmarkman.com/&quot;&gt;MarkMan&lt;/a&gt;标注就意味着已经是达到标准化生产的层面了。从业这么多年来最喜欢的设计团队。&lt;/li&gt;
+&lt;li&gt;正版操作系统。据说微软送的。&lt;/li&gt;
+&lt;li&gt;员工生日送蛋糕。&lt;/li&gt;
+&lt;li&gt;职业培训。支持员工学习进步。&lt;/li&gt;
+&lt;li&gt;需要技术书籍申请即可。没听说有上限。&lt;/li&gt;
+&lt;li&gt;每天提供饮料。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;风格：&lt;/code&gt;DIY装饰。喜欢弄些墙贴、挂饰来装饰办公室。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;风格：&lt;/code&gt;布置多媒体室提供xbox360。可以打游戏的公司哟！亲！&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;缺点：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;工作中发现Leader面试时考到我的技术点，居然从未分享给另外两个搭档过，虽然他时常还会检查代码来着。说明这个团队没有分享的氛围。&lt;/li&gt;
+&lt;li&gt;下班前半个小时都不知道今儿是否要加班。&lt;/li&gt;
+&lt;li&gt;让人感觉像是惩罚的加班(连坐)最终造成&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E6%96%AF%E5%BE%B7%E5%93%A5%E7%88%BE%E6%91%A9%E7%97%87%E5%80%99%E7%BE%A4&quot;&gt;斯德哥尔摩综合征&lt;/a&gt;，遇上不加班的日子Leader告诫大家要&quot;低调&quot;，&quot;别的小组不习惯&quot;……尼玛……&lt;/li&gt;
+&lt;li&gt;Boss爱把无关紧要的事儿放到下班后。比如开会和上面的&lt;code&gt;风格&lt;/code&gt;，如果实在没志愿者，就分配任务。&lt;/li&gt;
+&lt;li&gt;无加班工资。&lt;/li&gt;
+&lt;li&gt;其实没有明确的职业培训计划。入职前告诉我周六&quot;其实一般是拿来培训&quot;，到实际操作时，定为周四晚上。&lt;/li&gt;
+&lt;li&gt;办公室位于地下一层，通风不好，有三扇门，但只开一个，据说是怕&quot;泄财气&quot;。嗯，&quot;棺气&quot;都快捂出来了。&lt;/li&gt;
+&lt;li&gt;你能想象那么漂亮的ios App是大油头程序员儿开发出来的吗？&lt;/li&gt;
+&lt;li&gt;单休。每月一次双休，与法定节假日共用。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;最后，鉴于拿我宝贵的私人时间来加班，一种情况像是在&quot;弥补错误&quot;，越加越感觉自己无能；另一种情况是在做对Boss而言最没价值的杂事儿。&lt;/p&gt;
+
+&lt;p&gt;再加上所从事的项目不怎么有趣(入职前完全保密)。&lt;/p&gt;
+
+&lt;p&gt;在试用一个月期满证实我完全能胜任这份工作后，果断辞职了。&lt;/p&gt;
+
+&lt;p&gt;好吧，也许公司名字还真是蛮能反映公司文化的。&lt;/p&gt;
+
+&lt;h3&gt;2. Zerdoor&lt;/h3&gt;
+
+&lt;p&gt;随后应朋友之邀来一起创业的迷你公司。&lt;/p&gt;
+
+&lt;h4&gt;优点：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;迷你型公司氛围宽松。&lt;/li&gt;
+&lt;li&gt;主要项目听起来比较有趣。&lt;/li&gt;
+&lt;li&gt;基本遵守《劳动法》，很多&quot;大&quot;公司都做不到。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;缺点：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;犯过了创业公司经常会犯的大多数错误。&lt;/li&gt;
+&lt;li&gt;程序员儿经验浅，bug多。&lt;/li&gt;
+&lt;li&gt;把别人做完的事儿和自己准备做的事儿看得太简单。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;生活篇&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;试过了过了软陶。&lt;/li&gt;
+&lt;li&gt;试过了玻璃瓶切割。&lt;/li&gt;
+&lt;li&gt;试过了橡皮章雕刻。&lt;/li&gt;
+&lt;li&gt;香皂雕刻未达成。&lt;/li&gt;
+&lt;li&gt;蛙泳1km无压力。&lt;/li&gt;
+&lt;li&gt;猫爬架完成。&lt;/li&gt;
+&lt;li&gt;烤鸭未成功。&lt;/li&gt;
+&lt;li&gt;试过了伏特加、朗姆酒、威士忌。偏好威士忌。&lt;/li&gt;
+&lt;li&gt;陶瓷杯打孔盆栽完成。&lt;/li&gt;
+&lt;li&gt;开始了胸腹肌的锻炼。&lt;/li&gt;
+&lt;li&gt;开始学素描。&lt;/li&gt;
+&lt;li&gt;晨跑没能很好坚持，3km成绩退化到18分钟左右。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;计划篇&lt;/h2&gt;
+
+&lt;h3&gt;技术&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;重点掌握Processing和Ember。&lt;/li&gt;
+&lt;li&gt;掌握&lt;a href=&quot;http://book.douban.com/subject/20440003/&quot;&gt;《HTML5与CSS3设计模式》&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;入门Blender和Arduino。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;生活&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;继续练习素描。&lt;/li&gt;
+&lt;li&gt;加强胸腹肌锻炼。&lt;/li&gt;
+&lt;li&gt;全面恢复晨跑。&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>landscape</title>
+   <link href="http://zeng.li/2012/12/23/landscape"/>
+   <updated>2012-12-23T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/12/23/landscape</id>
+   <content type="html">&lt;p&gt;使用noise函数来生成landscape的练习。&lt;/p&gt;
+
+&lt;p&gt;通过noiseDetail可以设置变化的强度，官方参考上写的falloff参数合法值应该在0~1之间。不过似乎设置更大也没问题，并且小于1的时候怎么都无法获得一个比较剧烈的曲线，现在设置的参数是&lt;code&gt;noiseDetail(3,2.5)&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;此外，在web运行时，noise的变化强度比原生的更大。&lt;/p&gt;
+
+&lt;p&gt;另一个问题，设置光源后，在web端整个图形都是黑的，原因待查。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>jekyll with submodules</title>
+   <link href="http://zeng.li/2012/12/23/jekyll-with-submodules"/>
+   <updated>2012-12-23T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/12/23/jekyll-with-submodules</id>
+   <content type="html">&lt;p&gt;更新blog后，收到github的通知：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;The page build failed with the following error:
+page build failed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;各种奇怪，因为本地jekyll生成页面一切正常。&lt;/p&gt;
+
+&lt;p&gt;各种谷歌，各种修改_config.yml，还把jekyll和liquid降级到跟github的一样，仍然无解。&lt;/p&gt;
+
+&lt;p&gt;实在没辙了，下了个jekyll-bootstrap压缩包，一个个地把文件覆盖进去。&lt;/p&gt;
+
+&lt;p&gt;最终锁定元凶是作为子模块引入的两个processing练习项目。&lt;/p&gt;
+
+&lt;p&gt;然后在stackoverflow上找到这么篇文章：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/11817338/how-to-add-submodule-into-gh-pages-branch-build-static-pages-correctly&quot;&gt;How to add submodule into gh-pages branch &amp;amp; build static pages correctly?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;里面给出了gitbub的官方FAQ：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/using-submodules-with-pages&quot;&gt;Using submodules with Pages&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;真相大白。虽然最初看gibhub pages文档的时候有看过这一节，但遇到问题的时候完全没有想起来~~~又白白浪费一晚。八嘎。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>京东价格抓取</title>
+   <link href="http://zeng.li/2012/12/18/360buy-price-fetch"/>
+   <updated>2012-12-18T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/12/18/360buy-price-fetch</id>
+   <content type="html">&lt;p&gt;最近的一个活儿是为某代购网站做浏览器插件，把当前页面的商品信息抓取下来生成订单提交到其网站上去。&lt;/p&gt;
+
+&lt;p&gt;本来囧东之前就和一淘在打架，不给抓价格了，所以丫的价格是个图片。&lt;/p&gt;
+
+&lt;p&gt;不过丫却把产品的相关信息给写到页面内的全局变量下了，通过pageConfig.product就可以取到，虽然和页面显示的有差别，不过由于价格不是所需求的必要字段，咱也就凑合了。&lt;/p&gt;
+
+&lt;p&gt;但是。&lt;/p&gt;
+
+&lt;p&gt;活儿还没交付呢，囧东连这点儿便利也不给了。&lt;/p&gt;
+
+&lt;p&gt;于是……&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;头儿：&lt;/em&gt; 想想办法呗，价格字段空着好别扭啊。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;我：&lt;/em&gt; 人页面上都不给抓了，没辙啊~总不能做图像识别吧？&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;头儿：&lt;/em&gt; 我看有文章说可以把商品加入购物然后读数据的~&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;我：&lt;/em&gt; 人都不让你抓，强抓不太好吧。再说了，操作用户购物车诶~感觉不太地道啊~~~&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;头儿：&lt;/em&gt; 抓！&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;我：&lt;/em&gt; 好！&lt;/p&gt;
+
+&lt;p&gt;直接丢个货到购物车，看起来请求是从gate子域名跳转到cart下的initCart.action，再一个302重定向到addToCart.html。&lt;/p&gt;
+
+&lt;p&gt;试着直接在地址栏输入地址，最后确定直接通过initCart.action即可成功加入购物车：
+ &lt;code&gt;http://cart.360buy.com/cart/initCart.action?pid=xxxxxxxx&amp;amp;pcount=1&amp;amp;ptype=1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;嗯嗯，那么如果ajax没问题的话，就返回的页面读取商品价格就行了:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$.get(&quot;http://cart.360buy.com/cart/initCart.action?pid=623987&amp;amp;pcount-1&amp;amp;ptype=1&quot;,function(data){console.log(&quot;done:&quot;,$(&quot;data&quot;))}).fail(function(a){console.log(&quot;error:&quot;,a)})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果initCart.action成功返回302，但addToCart.html显示&lt;code&gt;canceled&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;这是神马情况？直接访问呢？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$.get(&quot;http://cart.360buy.com/cart/addToCart.html?rcd=1&amp;amp;pid=623987&amp;amp;rid=1355715916949&quot;,function(data){console.log(&quot;done:&quot;,$(&quot;data&quot;))}).fail(function(a){console.log(&quot;error:&quot;,a)})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;好吧，原来是重定向后因为跨域被浏览器阻止了。得想别的招。比如image beacon：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var a = $(&quot;&amp;lt;img/&amp;gt;&quot;);
+a.on(&quot;load&quot;,function(){console.log(&quot;done&quot;)});
+a.attr(&quot;src&quot;,&quot;http://cart.360buy.com/cart/initCart.action?pid=623987&amp;amp;pcount-1&amp;amp;ptype=1&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;理所当然地成功了，唯一的问题是……onload事件未触发……难道是因为载入的其实并不是真正的图片么？&lt;/p&gt;
+
+&lt;p&gt;翻书、翻谷歌……似乎image beacon还真就适用于无需服务器响应的请求……&lt;/p&gt;
+
+&lt;p&gt;挠墙……咋整，总不能傻不啦叽地用个setTimeout吧。或者用iframe然后侦听它的window.onload?光想想就很挫啊……&lt;/p&gt;
+
+&lt;p&gt;不管怎么说，img的资源载入是完成了的，也许可以借用别的属性神马的？&lt;/p&gt;
+
+&lt;p&gt;于是尝试image.complete属性……失败……不管是否载入资源，直接就是true。&lt;/p&gt;
+
+&lt;p&gt;image.onAbort事件应该没用。那么onError呢？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var a = $(&quot;&amp;lt;img/&amp;gt;&quot;);
+a.on(&quot;error&quot;,function(){console.log(&quot;done&quot;)});
+a.attr(&quot;src&quot;,&quot;http://cart.360buy.com/cart/initCart.action?pid=623987&amp;amp;pcount-1&amp;amp;ptype=1&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;擦！还真成了！敢情onError包括文件格式的错误，而不仅仅是资源是否加载成功啊。&lt;/p&gt;
+
+&lt;p&gt;于是，顺理成章地适用onError事件来调用后续处理，囧东购物车自己用的是jsonp，轻而易举得到数据然后删除刚加入的商品……神不知鬼不觉……&lt;/p&gt;
+
+&lt;p&gt;剩下的就是把原来的抓取代码改成兼容个别属性异步处理的，感谢jQuery1.5后增加了deferred对象，只简单地修改了price抓取函数并做了个分支处理就完成了，不然在简单的for循环中插入一个异步抓取的属性……想想都一团乱麻啊……&lt;/p&gt;
+
+&lt;p&gt;总结，用onerror事件来判断服务端响应完成，这种感觉还真诡异……不过若服务端真的响应失败了，也就无从得知了，到底是在别人的地盘儿上偷数据，认了吧。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>mosaic3d</title>
+   <link href="http://zeng.li/processing/2012/12/13/mosaic3d"/>
+   <updated>2012-12-13T00:00:00+08:00</updated>
+   <id>http://zeng.li/processing/2012/12/13/mosaic3d</id>
+   <content type="html">&lt;p&gt;浏览器的效能不如原生的高，如果你使用的是集成显卡，比如mac mini可能会卡~&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>command not found</title>
+   <link href="http://zeng.li/2012/12/12/command-not-found"/>
+   <updated>2012-12-12T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/12/12/command-not-found</id>
+   <content type="html">&lt;p&gt;本打算更新个about页，但jekyll居然莫名地&lt;code&gt;command not found&lt;/code&gt;了。&lt;/p&gt;
+
+&lt;p&gt;昨儿收工都还好好的啊！？&lt;/p&gt;
+
+&lt;p&gt;连带compass也挂了。&lt;/p&gt;
+
+&lt;p&gt;试着&lt;code&gt;sudo gem install jekyll&lt;/code&gt; ,结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ERROR:  Error installing jekyll:
+liquid requires RubyGems version &amp;gt;= 1.3.7. Try 'gem update --system' to update RubyGems itself.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;于是依照提示更新gem： &lt;code&gt;gem update --system&lt;/code&gt;。 再次重装终于成功。但运行时又出现新的bug：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Maruku tells you:
+REXML cannot parse this block of HTML/XML:
+...
+Illegal character '&amp;amp;' in raw string &quot;Codekit Compass &amp;amp; Jekyll&quot;    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;挠头，试着安装了RDiscount：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo gem install rdiscount
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;设置_config.yml替换掉maruku：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;markdown: rdiscount
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解决。但到底是是神马原因引起这一切还真是不得而知。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Codekit Compass & Jekyll</title>
+   <link href="http://zeng.li/2012/12/09/codekit-compass-and-jekyll"/>
+   <updated>2012-12-09T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/12/09/codekit-compass-and-jekyll</id>
+   <content type="html">&lt;p&gt;注册域名一年多后，终于把blog搭起来了。&lt;/p&gt;
+
+&lt;p&gt;正好在研究compass和bootstrap，所以jekyll-bootstrap就成了不二之选。&lt;/p&gt;
+
+&lt;p&gt;既然codekit提供了compass工具，就想索性一站式解决好了。&lt;/p&gt;
+
+&lt;p&gt;结果各种“you must compile individual stylesheets from the project directory”报错。&lt;/p&gt;
+
+&lt;p&gt;最后发现原因是jekyll生成了_site文件夹后，codekit检测到文件变动，会试图编译其中的sass文件。&lt;/p&gt;
+
+&lt;p&gt;So，配置codekit也好，配置compass也好，配置jekyll也好，过滤掉_site目录下的sass文件就好。&lt;/p&gt;
+
+&lt;p&gt;折腾了一个下午……&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Qunit Cookbook 中文版</title>
+   <link href="http://zeng.li/2012/11/07/Qunit-Cookbook-Zh"/>
+   <updated>2012-11-07T00:00:00+08:00</updated>
+   <id>http://zeng.li/2012/11/07/Qunit-Cookbook-Zh</id>
+   <content type="html">&lt;h2&gt;介绍&lt;/h2&gt;
+
+&lt;p&gt;自动化测试软件是一个重要的开发工具。单元测试是自动化测试的基本组成元素：软件的每个组件，即单元，伴随着一个可以由&lt;a href=&quot;http://baike.baidu.com/view/3699315.htm&quot;&gt;TestRunner&lt;/a&gt;运行一遍又一遍而无须人工干预的测试。换句话说，你只需写一次测试，然后任意运行而没有额外的开销。&lt;/p&gt;
+
+&lt;p&gt;​​良好的测试覆盖率自有其好处，此外，测试也可以驱动软件的设计，即&lt;em&gt;测试驱动设计&lt;/em&gt;，即在实际编码实现之前编写测试用例。一开始,你编写一个非常简单的注定失败的测试用例（因为被测试的代码还不存在），然后编写必要的实现代码，直到测试通过。一旦出现这种情况，您将扩展测试用例以覆盖更多的需求并再次编码实现。通过重复这些步骤，生成的代码看起来通常会非常不同于一开始就直接编码实现而得到代码。&lt;/p&gt;
+
+&lt;p&gt;在JavaScript中的单元测试与其它编程语言中没有太大的不同。你需要一个提供TestRunner的小框架，以及一些工具来编写实际的测试。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#introduction&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;自动单元测试&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;您想自动测试您的应用程序和框架，甚至试图使用&lt;em&gt;测试驱动设计&lt;/em&gt;。编写自己的测试框架很诱人，但在各种浏览器中测试JavaScript代码需要很多的工作来兼顾所有的细节和特殊的要求。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;好吧，虽然有其他的JavaScript单元测试框架，你已经决定要看看QUnit。QUnit是jQuery的单元测试框架，用于各种各样的项目。&lt;/p&gt;
+
+&lt;p&gt;要使用QUnit，你只需要在你的HTML页面引入两个QUnit文件。QUnit由两部分组成，&lt;code&gt;qunit.js&lt;/code&gt;:TestRunner和测试框架，&lt;code&gt;qunit.css&lt;/code&gt;:测试套件结果页的样式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;
+  &amp;lt;title&amp;gt;QUnit basic example&amp;lt;/title&amp;gt;
+  &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/resources/qunit.css&quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;div id=&quot;qunit&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;qunit-fixture&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;script src=&quot;/resources/qunit.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;script&amp;gt;
+  test( &quot;a basic test example&quot;, function() {
+      var value = &quot;hello&quot;;
+      equal( value, &quot;hello&quot;, &quot;We expect value to be hello&quot; );
+  });
+  &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在浏览器中打开此文件，结果如下图所示:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/screenShot.png&quot; alt=&quot;screenShot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;元素中唯一必要的标记是一个&lt;code&gt;ID =&quot;qunit-fixture&quot;&lt;/code&gt;的&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; 。所有QUnit测试都需要它，即使它本身是空的。它提供了测试用的fixture，在&lt;em&gt;“保持测试原子化”&lt;/em&gt;一节中会详细说明。&lt;/p&gt;
+
+&lt;p&gt;有趣的的部分是跟在&lt;code&gt;qunit.js&lt;/code&gt;后面的&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;元素。它包含一个&lt;code&gt;test&lt;/code&gt;函数调用，带有两个参数：一个字符串和一个函数。字符串表示测试的名称，稍后会用来显示测试结果。函数包含了实际的测试代码，包含一个或多个断言。该示例使用两个断言，&lt;code&gt;ok()&lt;/code&gt;和&lt;code&gt;equal()&lt;/code&gt; ，在&lt;em&gt;“断言结果”&lt;/em&gt;一节中会详细说明。&lt;/p&gt;
+
+&lt;p&gt;请注意，没有&lt;code&gt;document-ready&lt;/code&gt;块。TestRunner负责处理那些：调用&lt;code&gt;test()&lt;/code&gt;只是把测试用例添加到队列中，其执行将被延迟并由TestRunner和控制。&lt;/p&gt;
+
+&lt;h3&gt;讨论&lt;/h3&gt;
+
+&lt;p&gt;测试套件的页眉显示如下几个部分：页面的标题，测试状态条（绿色表示全通过，红色条表示至少有一个测试失败），若干复选框用于过滤测试结果，一个蓝色条显示浏览器信息（方便对不同的浏览器测试结果截图）。&lt;/p&gt;
+
+&lt;p&gt;“Hide passed tests”复选框在运行大量的测试时很有用。选中该复选框，将隐藏一切通过的测试用例，只显示失败的测试（参见下面的&lt;em&gt;高效开发&lt;/em&gt;小节）。&lt;/p&gt;
+
+&lt;p&gt;“Check for Globals”复选框让QUnit在每个测试之前和之后，检查全局变量差异。如果有变量被添加或删除，会导致测试失败并列出差异。这将有助于确保你的测试代码与被测代码免于意外导出任何全局变量。&lt;/p&gt;
+
+&lt;p&gt;“No try-catch”复选框让QUnit不捕获异常。这样你可以得到一个“原生”的异常，这对那些难以调试的破烂浏览器有极大帮助，没错，就是在说你，IE6。&lt;/p&gt;
+
+&lt;p&gt;页眉下面是一个总结，显示测试的总时间，全部断言和失败断言的数量。测试仍在运行时，它会显示哪个测试用例正在执行。&lt;/p&gt;
+
+&lt;p&gt;页面的主体是测试结果。个条目开头是测试用例的名称，其后的括号里数字分别代表失败，通过，和总的断言数量。点击条目显示断言的结果，通常包括预期值和实际值。最后的“Rerun”链接用来单独运行该测试用例。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#automating_unit_testing&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;断言结果&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;任何单元测试的本质元素是断言。测试作者需要让单元测试框架拿期望值与实际值进行比较。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;QUnit提供了三种断言。&lt;/p&gt;
+
+&lt;h4&gt;ok(truthy[,message])&lt;/h4&gt;
+
+&lt;p&gt;最基本的一条是&lt;code&gt;ok()&lt;/code&gt; ，只需要一个参数。如果参数的计算结果为true，则断言通过，否则断言失败。此外，它接受一个字符串用于显示测试结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;ok test&quot;, function() {
+  ok( true, &quot;true succeeds&quot; );
+  ok( &quot;non-empty&quot;, &quot;non-empty string succeeds&quot; );
+
+  ok( false, &quot;false fails&quot; );
+  ok( 0, &quot;0 fails&quot; );
+  ok( NaN, &quot;NaN fails&quot; );
+  ok( &quot;&quot;, &quot;empty string fails&quot; );
+  ok( null, &quot;null fails&quot; );
+  ok( undefined, &quot;undefined fails&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;equal( actual, expected [, message ] )&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;equal&lt;/code&gt;断言采用简单的比较操作符（==）比较实际值和期望值。当它们相等时，则断言通过，否则断言失败。失败时，除了以一个给定的消息之外，实际值和期望值也被显示在测试结果中，：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;equal test&quot;, function() {
+  equal( 0, 0, &quot;Zero; equal succeeds&quot; );
+  equal( &quot;&quot;, 0, &quot;Empty, Zero; equal succeeds&quot; );
+  equal( &quot;&quot;, &quot;&quot;, &quot;Empty, Empty; equal succeeds&quot; );
+  equal( 0, 0, &quot;Zero, Zero; equal succeeds&quot; );
+
+  equal( &quot;three&quot;, 3, &quot;Three, 3; equal fails&quot; );
+  equal( null, false, &quot;null, false; equal fails&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;相比&lt;code&gt;ok()&lt;/code&gt; ，&lt;code&gt;equal()&lt;/code&gt;使得容易调试失败的测试，因为它显式给出了造成测试失败的值。&lt;/p&gt;
+
+&lt;p&gt;如果你需要一个严格的比较(&lt;code&gt;===&lt;/code&gt;)，使用&lt;code&gt;strictEqual()&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;h4&gt;deepEqual( actual, expected [, message ] )&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;deepEqual()&lt;/code&gt;断言可以像&lt;code&gt;equal()&lt;/code&gt;那样使用，但它适用的场景更多。它采用了更精确的比较操作符（&lt;code&gt;===&lt;/code&gt;）而不是简单的（&lt;code&gt;==&lt;/code&gt;）。这样一来， &lt;code&gt;undefined&lt;/code&gt;不等于&lt;code&gt;null&lt;/code&gt;，&lt;code&gt;0&lt;/code&gt;，或空字符串（&lt;code&gt;&quot;&quot;&lt;/code&gt;）。它也可以比较对象的内容，使&lt;code&gt;{key:value}&lt;/code&gt;等于&lt;code&gt;{key:value}&lt;/code&gt;，即使两个对象是不同的实例。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;deepEqual()&lt;/code&gt;也可以处理NaN，日期，正则表达式，数组和函数，而&lt;code&gt;equal()&lt;/code&gt;只是检查对象的实例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;deepEqual test&quot;, function() {
+  var obj = { foo: &quot;bar&quot; };
+
+  deepEqual( obj, { foo: &quot;bar&quot; }, &quot;Two objects can be the same in value&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在一般情况下，&lt;code&gt;deepEqual()&lt;/code&gt;是更好的选择。如果你明确地不想比较两个值的内容，则仍然可以使用&lt;code&gt;equal()&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#asserting_results&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;同步回调&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;有时候，在你的代码环境可能会阻止断言执行，导致测试静默失败。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;QUnit提供了一个特殊的断言，用来定义一个测试用例中断言的总数。当测试完成后没有正确数量的断言就会失败，不管其他断言(如果有的话)的结果如何。&lt;/p&gt;
+
+&lt;p&gt;用法简单直白，只需要在测试开始时调用&lt;code&gt;expect()&lt;/code&gt;，唯一的参数是期望的断言总数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;a test&quot;, function() {
+  expect( 2 );
+
+  function calc( x, operation ) {
+    return operation( x );
+  }
+
+  var result = calc( 2, function( x ) {
+    ok( true, &quot;calc() calls operation function&quot; );
+    return x * x;
+  });
+
+  equal( result, 4, &quot;2 square equals 4&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外，期望的断言总数可以作为第二个参数传递给&lt;code&gt;test()&lt;/code&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;a test&quot;, 2, function() {
+
+  function calc( x, operation ) {
+    return operation( x );
+  }
+
+  var result = calc( 2, function( x ) {
+    ok( true, &quot;calc() calls operation function&quot; );
+    return x * x;
+  });
+
+  equal( result, 4, &quot;2 square equals 4&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;实例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;a test&quot;, 1, function() {
+  var $body = $( &quot;body&quot; );
+
+  $body.on( &quot;click&quot;, function() {
+    ok( true, &quot;body was clicked!&quot; );
+  });
+
+  $body.trigger( &quot;click&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;讨论&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;expect()&lt;/code&gt;只在测试回调时最有用。当所有的断言都运行在test函数的作用域内时， &lt;code&gt;expect()&lt;/code&gt;没有额外的作用——防止断言运行的任何错误都会导致测试最终失败，因为TestRunner会捕获错误并让单元测试失败。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#synchronous_callbacks&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;异步回调&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;虽然&lt;code&gt;expect()&lt;/code&gt;在测试同步回调（见“&lt;em&gt;同步回调&lt;/em&gt;”小节）很有用，但异步回调时就怂了。异步回调与TestRunner队列和执行测试的方式有冲突。当&lt;code&gt;test&lt;/code&gt;内的代码的发起了一个timeout或interval或Ajax请求，TestRunner将继续运行剩余的代码，以及之后的测试用例，而不是等待异步操作的结果。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;用&lt;code&gt;asyncTest()&lt;/code&gt;代替&lt;code&gt;test()&lt;/code&gt;来包装你的断言，并在该测试用例执行完成并准备好继续时调用&lt;code&gt;start()&lt;/code&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;asyncTest( &quot;asynchronous test: one second later!&quot;, function() {
+  expect( 1 );
+
+  setTimeout(function() {
+    ok( true, &quot;Passed and ready to resume!&quot; );
+    start();
+  }, 1000);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;实际的例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;asyncTest( &quot;asynchronous test: video ready to play&quot;, 1, function() {
+  var $video = $( &quot;video&quot; );
+
+  $video.on( &quot;canplaythrough&quot;, function() {
+    ok( true, &quot;video has loaded and is ready to play&quot; );
+    start();
+  });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#asynchronous_callbacks&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;测试用户操作&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;依赖于用户动作的代码，不能简单地调用一个函数来测试。通常，元素事件会绑定匿名函数，如click，这些需要模拟。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;您可以使用jQuery的&lt;code&gt;trigger()&lt;/code&gt;方法来触发事件并测试预期行为。如果不希望原生的浏览器事件被触发，可以用&lt;code&gt;triggerHandler()&lt;/code&gt;只执行绑定的事件处理程序。这对测试链接的click事件非常有用，因为&lt;code&gt;trigger()&lt;/code&gt;会导致浏览器跳转，在测试时我们几乎不会期望这种行为。&lt;/p&gt;
+
+&lt;p&gt;假设我们有一个简单的&lt;em&gt;键盘记录器&lt;/em&gt;要测试：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function KeyLogger( target ) {
+  if ( !(this instanceof KeyLogger) ) {
+    return new KeyLogger( target );
+  }
+  this.target = target;
+  this.log = [];
+
+  var self = this;
+
+  this.target.off( &quot;keydown&quot; ).on( &quot;keydown&quot;, function( event ) {
+    self.log.push( event.keyCode );
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们可以手动触发按键事件来观察记录器是否正常工作：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;keylogger api behavior&quot;, function() {
+
+  var event,
+      $doc = $( document ),
+      keys = KeyLogger( $doc );
+
+  // trigger event
+  event = $.Event( &quot;keydown&quot; );
+  event.keyCode = 9;
+  $doc.trigger( event );
+
+  // verify expected behavior
+  equal( keys.log.length, 1, &quot;a key was logged&quot; );
+  equal( keys.log[ 0 ], 9, &quot;correct key was logged&quot; );
+
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;讨论&lt;/h3&gt;
+
+&lt;p&gt;如果你的事件处理程序不依赖于任何特定的事件属性，你可以简单地调用&lt;code&gt;trigger(eventType)&lt;/code&gt;。否则你需要使用&lt;code&gt;$.Event&lt;/code&gt;来创建一个事件对象，并设置必要的属性，如前面所示。&lt;/p&gt;
+
+&lt;p&gt;同样重要的，是为复杂的行为触发所有相关的事件，如dragging，它由mousedown，至少一个mousemove，和mouseup事件构成。请记住，即使是一些看似简单的事件，实际上也是复合的，例如，一个click实际上是一个mousedown，mouseup，然后才是click。是否真的需要触发所有这三个事件取决于被测代码。大多数情况下只触发click就行了。&lt;/p&gt;
+
+&lt;p&gt;如果那还不够，你有几个可选框架，能帮助模拟用户事件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/jupiterjs/syn&quot;&gt;syn&lt;/a&gt; “是一个人工合成的事件库，几乎可以像一个真实的用户的行为一样处理typing，clicking，moving和dragging。” 基于QUnit的FuncUnit在使用它，来对Web应用程序做功能测试。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/ephox/JSRobot/&quot;&gt;JSRobot&lt;/a&gt; “一个Web的应用程序测试工具，可以产生真正的按键，而不是简单地模拟了JavaScript事件触发，这使得按键能触发浏览器实际的行为，别的框架做不到这点。”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://dojotoolkit.org/reference-guide/1.8/util/dohrobot.html&quot;&gt;DOH Robot&lt;/a&gt; “提供了一个API，使测试人员能使用真实的，跨平台的，系统级的输入事件来自动化UI测试”。这可以让你非常接近“真正的”浏览器事件，只是需要使用Java applets。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#testing_user_actions&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;保持测试原子化&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;当测试混在一起，可能使本应通过的测试失败，或本应失败的测试却通过。这是因为一个测试从前一个测试的副作用中获得了非法的结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;2 asserts&quot;, function() {
+  var $fixture = $( &quot;#qunit-fixture&quot; );
+
+  $fixture.append( &quot;&amp;lt;div&amp;gt;hello!&amp;lt;/div&amp;gt;&quot; );
+  equal( $( &quot;div&quot;, $fixture ).length, 1, &quot;div added successfully!&quot; );
+
+  $fixture.append( &quot;&amp;lt;span&amp;gt;hello!&amp;lt;/span&amp;gt;&quot; );
+  equal( $( &quot;span&quot;, $fixture ).length, 1, &quot;span added successfully!&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一个&lt;code&gt;append()&lt;/code&gt;加入了一个&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;,第二个&lt;code&gt;append()&lt;/code&gt;没有考虑到这点。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;使用的&lt;code&gt;test()&lt;/code&gt;方法保持测试原子化，注意要保持每个断言干净，避免任何可能的副作用。您应该只依靠&lt;code&gt;#qunit-fixture&lt;/code&gt;元素内的fixture标签。修改和依靠其它东西可能有副作用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;Appends a div&quot;, function() {
+  var $fixture = $( &quot;#qunit-fixture&quot; );
+
+  $fixture.append( &quot;&amp;lt;div&amp;gt;hello!&amp;lt;/div&amp;gt;&quot; );
+  equal( $( &quot;div&quot;, $fixture ).length, 1, &quot;div added successfully!&quot; );
+});
+
+test( &quot;Appends a span&quot;, function() {
+  var $fixture = $( &quot;#qunit-fixture&quot; );
+
+  $fixture.append(&quot;&amp;lt;span&amp;gt;hello!&amp;lt;/span&amp;gt;&quot; );
+  equal( $( &quot;span&quot;, $fixture ).length, 1, &quot;span added successfully!&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;QUnit在每次测试后将重置&lt;code&gt;#qunit-fixture&lt;/code&gt;内的元素，删除事件。只要你只使用fixture内的元素，就不必在测试后手动清理来保证他们的原子化。&lt;/p&gt;
+
+&lt;h3&gt;讨论&lt;/h3&gt;
+
+&lt;p&gt;除了​​&lt;code&gt;#qunit-fixture&lt;/code&gt;和在“高效开发”一节介绍的&lt;em&gt;过滤&lt;/em&gt;，QUnit也提供了一个&lt;code&gt;?noglobals&lt;/code&gt;标志。请看下面的测试：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test( &quot;global pollution&quot;, function() {
+  window.pollute = true;
+  ok( pollute, &quot;nasty pollution&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通常运行时可以通过。但带&lt;code&gt;noglobals&lt;/code&gt;标志运行&lt;code&gt;ok()&lt;/code&gt;将导致测试失败，因为QUnit检测到它污染了window对象。&lt;/p&gt;
+
+&lt;p&gt;没有必要一直使用该标志，但它可以很方便的检测全局命名空间污染，在接入了第三方库时这可能是个问题。并且它有助于检测测试中副作用所造成的错误。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#keeping_tests_atomic&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;分组测试&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;你已经分离了所有的测试用例，来保持原子化并避免副作用，但你还想将他们逻辑地组织起来，并能按组运行。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;您可以使用&lt;code&gt;module()&lt;/code&gt;函数来把测试组合到一起：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module( &quot;group a&quot; );
+test( &quot;a basic test example&quot;, function() {
+  ok( true, &quot;this test is fine&quot; );
+});
+test( &quot;a basic test example 2&quot;, function() {
+  ok( true, &quot;this test is fine&quot; );
+});
+
+module( &quot;group b&quot; );
+test( &quot;a basic test example 3&quot;, function() {
+  ok( true, &quot;this test is fine&quot; );
+});
+test( &quot;a basic test example 4&quot;, function() {
+  ok( true, &quot;this test is fine&quot; );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在&lt;code&gt;module()&lt;/code&gt;调用后的测试用例将被归入该模块。测试结果中会加上模块的名称。然后，您可以用该模块的名称来按组运行测试用例（参阅“&lt;em&gt;高效开发&lt;/em&gt;”一节）。&lt;/p&gt;
+
+&lt;h3&gt;讨论&lt;/h3&gt;
+
+&lt;p&gt;除了将测试用例​​分组，&lt;code&gt;module()&lt;/code&gt;还可以用来抽取公用代码。&lt;code&gt;module()&lt;/code&gt;函数接受可选的第二个参数，来定义在测试用例运行前后调用的函数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module( &quot;module&quot;, {
+  setup: function() {
+    ok( true, &quot;one extra assert per test&quot; );
+  }, teardown: function() {
+    ok( true, &quot;and one extra assert after each test&quot; );
+  }
+});
+test( &quot;test with setup and teardown&quot;, function() {
+  expect( 2 );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;您可以一起指定setup和teardown，或只是其中之一。&lt;/p&gt;
+
+&lt;p&gt;不带额外的参数再次调用&lt;code&gt;module()&lt;/code&gt;会重置之前模块定义的setup/teardown函数。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#grouping_tests&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;高效开发&lt;/h2&gt;
+
+&lt;h3&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;一旦你的测试套件需要较长的时间运行，你将想要避免浪费时间在等待结果上。&lt;/p&gt;
+
+&lt;h3&gt;解决方案&lt;/h3&gt;
+
+&lt;p&gt;QUnit有一堆内置功能来解决这个问题。最有趣的一个，只需点击激活页眉的“Hide passed tests”复选框，则QUnit将只显示失败的测试用例。这本身对速度没什么影响，但有利于把注意力集中在失败的测试用例上。&lt;/p&gt;
+
+&lt;p&gt;如果你把另一QUnit功能考虑进来，它将变得更有趣，这是默认启用的，通常不明显。当一个测试用例失败，QUnit将该测试用例的名称存储在&lt;code&gt;sessionStorage&lt;/code&gt;。下次运行时，该测试用例将优先运行。输出顺序不受影响，仅执行顺序。结合“Hide passed tests”复选框，您就能在页眉尽快看到失败的测试用例(如果仍然失败)。&lt;/p&gt;
+
+&lt;h3&gt;讨论&lt;/h3&gt;
+
+&lt;p&gt;自动重新排序是默认发生的。这意味着你的测试用例必须是原子化的。如果不是，你会看到随机的&lt;em&gt;非确定性错误&lt;/em&gt;。修复这一点通常是正确的做法。如果你真的绝望了，你可以设置&lt;code&gt;QUnit.config.reorder = false&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;除了自动重新排序，还有几个手动选项可用。您可以点击任意测试用例旁边的“Return”链接来重新运行测试。这将给查询字符串增加一个“testNumber = N”参数，其中“N”是该测试用例的编号。然后，您可以刷新页面来只运行该测试用例，或使用浏览器的后退按钮返回到运行所有测试用例的状态。&lt;/p&gt;
+
+&lt;p&gt;运行模块内的测试用例几乎是相同的方式，除非你使用右上角的下拉列表选择模块来运行。它会设置一个“module = N”的查询字符串，其中“N”是编码后的模块名称，例如“?module=testEnvironment％20with％20object”。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/#efficient_development&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;====================================================================&lt;/p&gt;
+
+&lt;h2&gt;更多教程&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.swift-lizard.com/2009/11/24/test-driven-development-with-jquery-qunit/&quot;&gt;A short QUnit introduction in english&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.aspnetzone.de/blogs/robertobez/archive/2009/12/02/jQuery-javascript-qunit-unit-test-framework.aspx&quot;&gt;A short QUnit introduction in german&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/javascript-ajax/how-to-test-your-javascript-code-with-qunit/&quot;&gt;Nettuts on Testing with QUnit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://twoguysarguing.wordpress.com/2010/11/02/make-javascript-tests-part-of-your-build-qunit-rhino/&quot;&gt;Running QUnit tests with Rhino&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://martinfowler.com/articles/nonDeterminism.html&quot;&gt;Martin Fowler on Eradicating Non-Determinism in Tests. Not QUnit specific, but very useful advice and a lot of it applies to JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://msdn.microsoft.com/en-us/scriptjunkie/gg749824.aspx&quot;&gt;ScriptJunkie article on Automating JavaScript Testing with QUnit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;如果你想了解更多有关javascript单元测试(不仅仅是QUnit), 看看这本书&lt;a href=&quot;http://book.douban.com/subject/10483528/&quot;&gt;《测试驱动的JavaScript开发》&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;本节首次出版，在一个非独占性许可下，出现在由Scott González and Jörn Zaefferer撰写的《jQuery Cookbook》的最后一章。这本书的印刷之后，QUnit有所改变，这个版本是最新的。 这项工作使用&lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.zh_TW&quot;&gt;姓名標示 3.0 Unported 许可 (CC BY 3.0) &lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;原文：&lt;a href=&quot;&quot;&gt;http://qunitjs.com/cookbook/more_tutorials&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>《用户体验要素》</title>
+   <link href="http://zeng.li/读书笔记/2012/02/22/The_Elements_of_User_Experience"/>
+   <updated>2012-02-22T00:00:00+08:00</updated>
+   <id>http://zeng.li/读书笔记/2012/02/22/The_Elements_of_User_Experience</id>
+   <content type="html">&lt;p&gt;起初以为是介绍界面设计的书。&lt;/p&gt;
+
+&lt;p&gt;而实际上这本书讲的是如何从头开始一个产品项目。调研、文案一个都不能少。&lt;/p&gt;
+
+&lt;p&gt;那种一上来就空手做原型的方式，简直是漏洞百出后患无穷。&lt;/p&gt;
+
+&lt;p&gt;书中介绍的“&lt;a href=&quot;http://www.jjg.net/ia/visvocab/chinese.html&quot;&gt;视觉词典&lt;/a&gt;”真是很有用的工具。&lt;a href=&quot;http://zh.wikipedia.org/zh/OmniGraffle&quot;&gt;OmniGraffle&lt;/a&gt;的默认模板库里就收录了它。&lt;/p&gt;
+
+&lt;p&gt;书很小，豆瓣上有人提到1个小时就读完了。&lt;/p&gt;
+
+&lt;p&gt;不过，我这个外行，足足看了一个月。很多概念性的东西吧，还需要别的读物来补充。这不是本落实到细节的教程。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jekyll Introduction</title>
+   <link href="http://zeng.li/lessons/2011/12/29/jekyll-introduction"/>
+   <updated>2011-12-29T00:00:00+08:00</updated>
+   <id>http://zeng.li/lessons/2011/12/29/jekyll-introduction</id>
+   <content type="html">&lt;p&gt;This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
+Directly following the intro we'll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+
+&lt;h3&gt;What is Jekyll?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
+dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as &quot;a simple, blog aware, static site generator&quot;.&lt;/p&gt;
+
+&lt;h3&gt;Examples&lt;/h3&gt;
+
+&lt;p&gt;This website is created with Jekyll. &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Sites&quot;&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;What does Jekyll Do?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is a ruby gem you install on your local system.
+Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory
+is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files,
+compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
+
+&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code&gt;_site&lt;/code&gt; folder.
+The intention here is that you can serve all contents in this folder statically from a plain static web-server.&lt;/p&gt;
+
+&lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags
+on each request, Jekyll does this once &lt;em&gt;beforehand&lt;/em&gt; and caches the &lt;em&gt;entire website&lt;/em&gt; in a folder for serving statically.&lt;/p&gt;
+
+&lt;h3&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Jekyll is a parsing engine.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Jekyll does not come with any content nor does it have any templates or design elements.
+This is a common source of confusion when getting started.
+Jekyll does not come with anything you actually use or see on your website - you have to make it.&lt;/p&gt;
+
+&lt;h3&gt;Why Should I Care?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is very minimalistic and very efficient.
+The most important thing to realize about Jekyll is that it creates a static representation of your website requiring only a static web-server.
+Traditional dynamic blogs like Wordpress require a database and server-side code.
+Heavily trafficked dynamic blogs must employ a caching layer that ultimately performs the same job Jekyll sets out to do; serve static content.&lt;/p&gt;
+
+&lt;p&gt;Therefore if you like to keep things simple and you prefer the command-line over an admin panel UI then give Jekyll a try.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Developers like Jekyll because we can write content like we write code:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ability to write content in markdown or textile in your favorite text-editor.&lt;/li&gt;
+&lt;li&gt;Ability to write and preview your content via localhost.&lt;/li&gt;
+&lt;li&gt;No internet connection required.&lt;/li&gt;
+&lt;li&gt;Ability to publish via git.&lt;/li&gt;
+&lt;li&gt;Ability to host your blog on a static web-server.&lt;/li&gt;
+&lt;li&gt;Ability to host freely on GitHub Pages.&lt;/li&gt;
+&lt;li&gt;No database required.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;How Jekyll Works&lt;/h1&gt;
+
+&lt;p&gt;The following is a complete but concise outline of exactly how Jekyll works.&lt;/p&gt;
+
+&lt;p&gt;Be aware that core concepts are introduced in rapid succession without code examples.
+This information is not intended to specifically teach you how to do anything, rather it
+is intended to give you the &lt;em&gt;full picture&lt;/em&gt; relative to what is going on in Jekyll-world.&lt;/p&gt;
+
+&lt;p&gt;Learning these core concepts should help you avoid common frustrations and ultimately
+help you better understand the code examples contained throughout Jekyll-Bootstrap.&lt;/p&gt;
+
+&lt;h2&gt;Initial Setup&lt;/h2&gt;
+
+&lt;p&gt;After &lt;a href=&quot;/index.html#start-now&quot;&gt;installing jekyll&lt;/a&gt; you'll need to format your website directory in a way jekyll expects.
+Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
+
+&lt;h3&gt;The Jekyll Application Base Format&lt;/h3&gt;
+
+&lt;p&gt;Jekyll expects your website directory to be laid out like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+|-- _config.yml
+|-- _includes
+|-- _layouts
+|   |-- default.html
+|   |-- post.html
+|-- _posts
+|   |-- 20011-10-25-open-source-is-good.markdown
+|   |-- 20011-04-26-hello-world.markdown
+|-- _site
+|-- index.html
+|-- assets
+    |-- css
+        |-- style.css
+    |-- javascripts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;br/&gt;
+  Stores configuration data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_includes&lt;/strong&gt;&lt;br/&gt;
+  This folder is for partial views.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_layouts&lt;/strong&gt; &lt;br/&gt;
+  This folder is for the main templates your content will be inserted into.
+  You can have different layouts for different pages or page sections.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_posts&lt;/strong&gt;&lt;br/&gt;
+  This folder contains your dynamic content/posts.
+  the naming format is required to be &lt;code&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_site&lt;/strong&gt;&lt;br/&gt;
+  This is where the generated site will be placed once Jekyll is done transforming it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;assets&lt;/strong&gt;&lt;br/&gt;
+  This folder is not part of the standard jekyll structure.
+  The assets folder represents &lt;em&gt;any generic&lt;/em&gt; folder you happen to create in your root directory.
+  Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;(read more: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Usage&quot;&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h3&gt;Jekyll Configuration&lt;/h3&gt;
+
+&lt;p&gt;Jekyll supports various configuration options that are fully outlined here:
+&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Configuration&quot;&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Content in Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Content in Jekyll is either a post or a page.
+These content &quot;objects&quot; get inserted into one or more templates to build the final output for its respective static-page.&lt;/p&gt;
+
+&lt;h3&gt;Posts and Pages&lt;/h3&gt;
+
+&lt;p&gt;Both posts and pages should be written in markdown, textile, or HTML and may also contain Liquid templating syntax.
+Both posts and pages can have meta-data assigned on a per-page basis such as title, url path, as well as arbitrary custom meta-data.&lt;/p&gt;
+
+&lt;h3&gt;Working With Posts&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt; &lt;br/&gt;
+Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br/&gt;
+A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory.
+If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file.
+Additionally, each file must have &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt; prepended to its content.
+YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Order&lt;/strong&gt;&lt;br/&gt;
+Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy.
+Only reverse chronological and chronological ordering is supported in Jekyll.&lt;/p&gt;
+
+&lt;p&gt;Since the date is hard-coded into the filename format, to change the order, you must change the dates in the filenames.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt; &lt;br/&gt;
+Posts can have tags associated with them as part of their meta-data.
+Tags may be placed on posts by providing them in the post's YAML front matter.
+You have access to the post-specific tags in the templates. These tags also get added to the sitewide collection.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Categories&lt;/strong&gt; &lt;br/&gt;
+Posts may be categorized by providing one or more categories in the YAML front matter.
+Categories offer more significance over tags in that they can be reflected in the URL path to the given post.
+Note categories in Jekyll work in a specific way.
+If you define more than one category you are defining a category hierarchy &quot;set&quot;.
+Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+title :  Hello World
+categories : [lessons, beginner]
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This defines the category hierarchy &quot;lessons/beginner&quot;. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll.
+You won't find &quot;lessons&quot; and &quot;beginner&quot; as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
+
+&lt;h3&gt;Working With Pages&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Creating a Page&lt;/strong&gt;&lt;br/&gt;
+Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do &lt;em&gt;not&lt;/em&gt; start with an underscore.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br/&gt;
+In order to register as a Jekyll page the file must contain &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt;.
+Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;&lt;br/&gt;
+Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sub-Directories&lt;/strong&gt;&lt;br/&gt;
+If pages are defined in sub-directories, the path to the page will be reflected in the url.
+Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+|-- people
+    |-- bob
+        |-- essay.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This page will be available at &lt;code&gt;http://yourdomain.com/people/bob/essay.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recommended Pages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;br/&gt;
+You will always want to define the root index.html page as this will display on your root URL.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;404.html&lt;/strong&gt;&lt;br/&gt;
+Create a root 404.html page and GitHub Pages will serve it as your 404 response.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sitemap.html&lt;/strong&gt;&lt;br/&gt;
+Generating a sitemap is good practice for SEO.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;about.html&lt;/strong&gt;&lt;br/&gt;
+A nice about page is easy to do and gives the human perspective to your website.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Templates in Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Templates are used to contain a page's or post's content.
+All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;.
+The site variable holds all accessible content and metadata relative to the site.
+The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Create a Template&lt;/strong&gt;&lt;br/&gt;
+Templates are created by properly formatting a file and placing it in the &lt;code&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br/&gt;
+Templates should be coded in HTML and contain YAML Front Matter.
+All templates can contain Liquid code to work with your site's data.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rending Page/Post Content in a Template&lt;/strong&gt;&lt;br/&gt;
+There is a special variable in all templates named : &lt;code&gt;content&lt;/code&gt;.
+The &lt;code&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined.
+Render the content variable wherever you want your main content to be injected into your template:&lt;/p&gt;
+
+&lt;p&gt;  &lt;pre&gt;&lt;code&gt;...
+&amp;lt;body&amp;gt;
+  &amp;lt;div id=&quot;sidebar&quot;&amp;gt; ... &amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;main&quot;&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;amp;#123;{content}&amp;amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+
+&lt;h3&gt;Sub-Templates&lt;/h3&gt;
+
+&lt;p&gt;Sub-templates are exactly templates with the only difference being they
+define another &quot;root&quot; layout/template within their YAML Front Matter.
+This essentially means a template will render inside of another template.&lt;/p&gt;
+
+&lt;h3&gt;Includes&lt;/h3&gt;
+
+&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder.
+Includes are NOT templates, rather they are just code snippets that get included into templates.
+In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
+
+&lt;p&gt;Any valid template code may be used in includes.&lt;/p&gt;
+
+&lt;h2&gt;Using Liquid for Templating&lt;/h2&gt;
+
+&lt;p&gt;Templating is perhaps the most confusing and frustrating part of Jekyll.
+This is mainly due to the fact that Jekyll templates must use the Liquid Templating Language.&lt;/p&gt;
+
+&lt;h3&gt;What is Liquid?&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href=&quot;http://shopify.com&quot;&gt;Shopify&lt;/a&gt;.
+Liquid is designed for end-users to be able to execute logic within template files
+without imposing any security risk on the hosting server.&lt;/p&gt;
+
+&lt;p&gt;Jekyll uses Liquid to generate the post content within the final page layout structure and as the primary interface for working with
+your site and post/page data.&lt;/p&gt;
+
+&lt;h3&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
+
+&lt;p&gt;GitHub uses Jekyll to power &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;.
+GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
+
+&lt;h3&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
+
+&lt;p&gt;The short story is liquid is not real code and its not intended to execute real code.
+The point being you can't do jackshit in liquid that hasn't been allowed explicitly by the implementation.
+What's more you can only access data-structures that have been explicitly passed to the template.&lt;/p&gt;
+
+&lt;p&gt;In Jekyll's case it is not possible to alter what is passed to Liquid without hacking the gem or running custom plugins.
+Both of which cannot be supported by GitHub Pages.&lt;/p&gt;
+
+&lt;p&gt;As a programmer - this is very frustrating.&lt;/p&gt;
+
+&lt;p&gt;But rather than look a gift horse in the mouth we are going to
+suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt; &lt;br/&gt;
+My personal stance is to not invest time trying to hack liquid. It's really unnecessary
+&lt;em&gt;from a programmer's&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code)
+you are better off sticking with ruby. Toward that end I've built &lt;a href=&quot;http://github.com/plusjade/mustache-with-jekyll&quot;&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Static Assets&lt;/h2&gt;
+
+&lt;p&gt;Static assets are any file in the root or non-underscored subfolders that are not pages.
+That is they have no valid YAML Front Matter and are thus not treated as Jekyll Pages.&lt;/p&gt;
+
+&lt;p&gt;Static assets should be used for images, css, and javascript files.&lt;/p&gt;
+
+&lt;h2&gt;How Jekyll Parses Files&lt;/h2&gt;
+
+&lt;p&gt;Remember Jekyll is a processing engine. There are two main types of parsing in Jekyll.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Content parsing.&lt;/strong&gt; &lt;br/&gt;
+  This is done with textile or markdown.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Template parsing.&lt;/strong&gt; &lt;br/&gt;
+This is done with the liquid templating language.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;And thus there are two main types of file formats needed for this parsing.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Post and Page files.&lt;/strong&gt;&lt;br/&gt;
+All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Template files.&lt;/strong&gt;  &lt;br/&gt;
+  These files go in &lt;code&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax.
+  Since include files are simply injected into templates they are essentially parsed as if they were native to the template.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Arbitrary files and folders.&lt;/strong&gt; &lt;br/&gt;
+Files that &lt;em&gt;are not&lt;/em&gt; valid pages are treated as static content and pass through
+Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.&lt;/p&gt;
+
+&lt;h3&gt;Formatting Files for Parsing.&lt;/h3&gt;
+
+&lt;p&gt;We've outlined the need for valid formatting using &lt;strong&gt;YAML Front Matter&lt;/strong&gt;.
+Templates, posts, and pages all need to provide valid YAML Front Matter even if the Matter is empty.
+This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
+
+&lt;p&gt;YAML Front Matter must be prepended to the top of template/post/page files:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+layout: post
+category : pages
+tags : [how-to, jekyll]
+---
+
+... contents ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block.
+The data inside the block must be valid YAML.&lt;/p&gt;
+
+&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here:
+&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into.
+If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt;
+That is to say loading a post file into a template file that refers to another template file with work in the way you'd expect; as a nested sub-template.&lt;/p&gt;
+
+&lt;h2&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
+
+&lt;p&gt;Ultimately, Jekyll's job is to generate a static representation of your website.
+The following is an outline of how that's done:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll collects data.&lt;/strong&gt; &lt;br/&gt;
+Jekyll scans the posts directory and collects all posts files as post objects. It then scans the layout assets and collects those and finally scans other directories in search of pages.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll computes data.&lt;/strong&gt; &lt;br/&gt;
+Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one
+big &lt;code&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata.
+At this stage your site is one big computed ruby object.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll liquifies posts and templates.&lt;/strong&gt;&lt;br/&gt;
+Next jekyll loops through each post file and converts (through markdown or textile) and &lt;strong&gt;liquifies&lt;/strong&gt; the post inside of its respective layout(s).
+Once the post is parsed and liquified inside the the proper layout structure, the layout itself is &quot;liquified&quot;. &lt;br/&gt;
+ &lt;strong&gt;Liquification&lt;/strong&gt; is defined as follows: Jekyll initiates a Liquid template, and passes a simpler hash representation of the ruby site object as well as a simpler
+hash representation of the ruby post object. These simplified data structures are what you have access to in the templates.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll generates output.&lt;/strong&gt; &lt;br/&gt;
+ Finally the liquid templates are &quot;rendered&quot;, thereby processing any liquid syntax provided in the templates
+ and saving the final, static representation of the file.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Notes.&lt;/strong&gt;&lt;br/&gt;
+Because Jekyll computes the entire site in one fell swoop, each template is given access to
+a global &lt;code&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you'll iterate through and format
+using the Liquid tags and filters in order to render it onto a given page.&lt;/p&gt;
+
+&lt;p&gt;Remember, in Jekyll you are an end-user. Your API has only two components:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The manner in which you setup your directory.&lt;/li&gt;
+&lt;li&gt;The liquid syntax and variables passed into the liquid templates.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap.
+You can also read the original documentation here: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Template-Data&quot;&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope this paints a clearer picture of what Jekyll is doing and why it works the way it does.
+As noted, our main programming constraint is the fact that our API is limited to what is accessible via Liquid and Liquid only.&lt;/p&gt;
+
+&lt;p&gt;Jekyll-bootstrap is intended to provide helper methods and strategies aimed at making it more intuitive and easier to work with Jekyll =)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Thank you&lt;/strong&gt; for reading this far.&lt;/p&gt;
+
+&lt;h2&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;Please take a look at &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+or jump right into &lt;a href=&quot;&quot;&gt;Usage&lt;/a&gt; if you'd like.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

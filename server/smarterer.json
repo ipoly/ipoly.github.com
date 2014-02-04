@@ -1,0 +1,463 @@
+{
+    "username": "zl",
+    "badges": [{
+        "state": "running",
+        "badge": {
+            "level": "Master",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/user-experience/786_2.png",
+            "percentile": 98.219999999999999,
+            "score": 786,
+            "raw_score": 785.75099999999998,
+            "last_modified": "2012-06-20T01:51:26",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "user-experience",
+            "id": 1077,
+            "name": "User Experience"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Master",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/javascript/784_2.png",
+            "percentile": 97.980000000000004,
+            "score": 784,
+            "raw_score": 783.87900000000002,
+            "last_modified": "2012-06-16T12:58:43",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "javascript",
+            "id": 59,
+            "name": "JavaScript"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/css/776_2.png",
+            "percentile": 96.950000000000003,
+            "score": 776,
+            "raw_score": 775.60599999999999,
+            "last_modified": "2012-06-16T12:47:57",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "css",
+            "id": 50,
+            "name": "CSS"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/jquery/772_2.png",
+            "percentile": 96.530000000000001,
+            "score": 772,
+            "raw_score": 772.20699999999999,
+            "last_modified": "2012-06-18T06:33:56",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "jquery",
+            "id": 60,
+            "name": "jQuery"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/regex/767_2.png",
+            "percentile": 95.879999999999995,
+            "score": 767,
+            "raw_score": 767.00300000000004,
+            "last_modified": "2012-06-18T09:31:11",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "regex",
+            "id": 1076,
+            "name": "Regex"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/google-chrome/723_2.png",
+            "percentile": 90.379999999999995,
+            "score": 723,
+            "raw_score": 723.06899999999996,
+            "last_modified": "2012-06-18T07:23:19",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "google-chrome",
+            "id": 17,
+            "name": "Google Chrome"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/html5/720_2.png",
+            "percentile": 89.939999999999998,
+            "score": 720,
+            "raw_score": 719.51700000000005,
+            "last_modified": "2012-06-19T03:02:15",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "html5",
+            "id": 75,
+            "name": "HTML5"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/html/708_2.png",
+            "percentile": 88.540000000000006,
+            "score": 708,
+            "raw_score": 708.32399999999996,
+            "last_modified": "2012-06-18T06:47:15",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "html",
+            "id": 52,
+            "name": "HTML"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Expert",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/vim/707_2.png",
+            "percentile": 88.340000000000003,
+            "score": 707,
+            "raw_score": 706.755,
+            "last_modified": "2012-06-18T08:26:32",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "vim",
+            "id": 304,
+            "name": "Vim"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/css3/697_2.png",
+            "percentile": 87.120000000000005,
+            "score": 697,
+            "raw_score": 696.99800000000005,
+            "last_modified": "2012-06-19T09:47:53",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "css3",
+            "id": 181,
+            "name": "CSS3"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/google-search/687_2.png",
+            "percentile": 85.890000000000001,
+            "score": 687,
+            "raw_score": 687.14999999999998,
+            "last_modified": "2012-06-18T08:35:14",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "google-search",
+            "id": 27,
+            "name": "Google Search"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/web-standards/681_2.png",
+            "percentile": 85.120000000000005,
+            "score": 681,
+            "raw_score": 680.96100000000001,
+            "last_modified": "2012-06-18T08:41:24",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "web-standards",
+            "id": 848,
+            "name": "Web Standards"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/windows-7/630_2.png",
+            "percentile": 78.780000000000001,
+            "score": 630,
+            "raw_score": 630.23500000000001,
+            "last_modified": "2012-06-18T07:30:00",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "windows-7",
+            "id": 259,
+            "name": "Windows 7"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/osx/602_2.png",
+            "percentile": 75.260000000000005,
+            "score": 602,
+            "raw_score": 602.06200000000001,
+            "last_modified": "2012-06-18T09:17:43",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "osx",
+            "id": 234,
+            "name": "OS X"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/dropbox/541_2.png",
+            "percentile": 67.569999999999993,
+            "score": 541,
+            "raw_score": 540.57799999999997,
+            "last_modified": "2012-06-18T08:22:23",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "dropbox",
+            "id": 140,
+            "name": "Dropbox"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/linux/527_2.png",
+            "percentile": 65.930000000000007,
+            "score": 527,
+            "raw_score": 527.43899999999996,
+            "last_modified": "2012-06-18T09:06:59",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "linux",
+            "id": 150,
+            "name": "Linux"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/computer-competency-test/503_2.png",
+            "percentile": 62.880000000000003,
+            "score": 503,
+            "raw_score": 503.02300000000002,
+            "last_modified": "2012-06-19T09:52:18",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "computer-competency-test",
+            "id": 580,
+            "name": "Computer Competency Test"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/gmail/498_2.png",
+            "percentile": 62.25,
+            "score": 498,
+            "raw_score": 498.02199999999999,
+            "last_modified": "2012-06-19T03:13:19",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "gmail",
+            "id": 66,
+            "name": "Gmail"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/photoshop/484_2.png",
+            "percentile": 60.490000000000002,
+            "score": 484,
+            "raw_score": 483.952,
+            "last_modified": "2012-06-19T09:55:10",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "photoshop",
+            "id": 34,
+            "name": "Photoshop"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Proficient",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/keynote/478_2.png",
+            "percentile": 59.719999999999999,
+            "score": 478,
+            "raw_score": 477.78800000000001,
+            "last_modified": "2012-06-18T08:44:15",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "keynote",
+            "id": 497,
+            "name": "Keynote"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Familiar",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/python/421_2.png",
+            "percentile": 52.659999999999997,
+            "score": 421,
+            "raw_score": 421.28100000000001,
+            "last_modified": "2012-06-18T07:14:41",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "python",
+            "id": 44,
+            "name": "Python"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Familiar",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/word/376_2.png",
+            "percentile": 47.0,
+            "score": 376,
+            "raw_score": 375.96199999999999,
+            "last_modified": "2012-06-19T03:17:11",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "word",
+            "id": 35,
+            "name": "Word"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Familiar",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/chinese/326_2.png",
+            "percentile": 40.719999999999999,
+            "score": 326,
+            "raw_score": 325.74599999999998,
+            "last_modified": "2012-06-18T08:38:24",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "chinese",
+            "id": 708,
+            "name": "Chinese"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Beginner",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/illustrator/246_2.png",
+            "percentile": 30.699999999999999,
+            "score": 246,
+            "raw_score": 245.62299999999999,
+            "last_modified": "2012-06-19T10:08:38",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "illustrator",
+            "id": 29,
+            "name": "Illustrator"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Beginner",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/excel/133_2.png",
+            "percentile": 16.629999999999999,
+            "score": 133,
+            "raw_score": 133.03800000000001,
+            "last_modified": "2012-06-18T09:05:20",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "excel",
+            "id": 30,
+            "name": "Excel"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Beginner",
+            "min_threshold": true,
+            "image": "http://smarterer.com/images/scores/english-language/72_2.png",
+            "percentile": 9.0099999999999998,
+            "score": 72,
+            "raw_score": 72.066999999999993,
+            "last_modified": "2012-06-19T10:16:32",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "english-language",
+            "id": 417,
+            "name": "English language"
+        }
+    }, {
+        "state": "running",
+        "badge": {
+            "level": "Beginner",
+            "min_threshold": false,
+            "image": "http://smarterer.com/images/scores/happiness/40_2.png",
+            "percentile": 4.9500000000000002,
+            "score": 40,
+            "raw_score": 39.572000000000003,
+            "last_modified": "2012-06-18T08:49:55",
+            "is_public": true
+        },
+        "quiz": {
+            "url_slug": "happiness",
+            "id": 565,
+            "name": "Happiness"
+        }
+    }]
+}
